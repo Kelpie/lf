@@ -5,6 +5,11 @@ package info.livefans
  */
 class Tournament {
 
+	String name
+	String place
+	
     static constraints = {
     }
+	static mapping = {
+	}
 }

@@ -5,6 +5,15 @@ package info.livefans
  */
 class Player {
 
-    static constraints = {
-    }
+	String name
+	String lastname
+	Date birthdate
+	BigDecimal heigh
+	Date birthplace
+
+	static constraints = {
+	}
+
+	static mapping = {
+	}
 }
