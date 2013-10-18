@@ -10,6 +10,7 @@
 // if (System.properties["${appName}.config.location"]) {
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
+grails.app.context = "/"
 
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 
