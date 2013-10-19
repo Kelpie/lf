@@ -1,28 +1,138 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"><!--<![endif]-->
+<html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title><g:layoutTitle default="Grails"/></title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
-		<link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
-		<link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
-		<link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
-		<link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
-		<g:layoutHead/>
-		<r:layoutResources />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <!-- Bootstrap -->
+	    <asset:stylesheet src="lib/bootstrap/css/bootstrap.min.css"/>
+	
+	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	    <!--[if lt IE 9]>
+	      <asset:javascript src="lib/bootstrap/respond.min.js"/>
+	    <![endif]-->		
+		<g:layoutHead/>	
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a></div>
+	
+		<!-- HEADER -->
+		<header>
+			<div class="wrapper cf">
+				
+				<div id="logo">
+					<a href="index.html"><img  src="img/logo.png" alt="Simpler"></a>
+				</div>
+				
+				<!-- nav -->
+				<ul id="nav" class="sf-menu">
+					<li><a href="index.html"><span>HOME</span></a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="page.html">ABOUT</a>
+						<ul>
+							<li><a href="page-elements.html">Elements</a></li>
+							<li><a href="page-icons.html">Icons</a></li>
+							<li><a href="page-typography.html">Typography</a></li>
+						</ul>
+					</li>
+					<li class="current-menu-item"><a href="portfolio.html">WORK</a></li>
+					<li><a href="contact.html">CONTACT</a></li>
+				</ul>
+				<div id="combo-holder"></div>
+				<!-- ends nav -->
+
+			</div>
+		</header>
+		<!-- ENDS HEADER -->
+		
 		<g:layoutBody/>
-		<div class="footer" role="contentinfo"></div>
-		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
-		<g:javascript library="application"/>
-		<r:layoutResources />
+		
+		<!-- FOOTER -->
+		
+		<footer>
+			<div class="wrapper cf">
+			
+				<!-- widgets -->
+				<ul  class="widget-cols cf">
+					<li class="first-col">
+						
+						<div class="widget-block">
+							<h4>RECENT POSTS</h4>
+							<div class="recent-post cf">
+								<a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post" /></a>
+								<div class="post-head">
+									<a href="#">Pellentesque habitant morbi senectus</a><span> March 12, 2011</span>
+								</div>
+							</div>
+							<div class="recent-post cf">
+								<a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post" /></a>
+								<div class="post-head">
+									<a href="#">Pellentesque habitant morbi senectus</a><span> March 12, 2011</span>
+								</div>
+							</div>
+							<div class="recent-post cf">
+								<a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post" /></a>
+								<div class="post-head">
+									<a href="#">Pellentesque habitant morbi senectus</a><span> March 12, 2011</span>
+								</div>
+							</div>
+						</div>
+					</li>
+					
+					<li class="second-col">
+						
+						<div class="widget-block">
+							<h4>ABOUT</h4>
+							<p>Folder it's completely free this means you don't have to pay anything <a href="http://luiszuno.com/blog/license" tar >read license</a>.</p> 
+							<p>Visit <a href="http://templatecreme.com/" >Template Creme</a> and find the most beautiful free templates up to date.</p>
+						</div>
+						
+					</li>
+					
+					<li class="third-col">
+						
+						<div class="widget-block">
+							<div id="tweets" class="footer-col tweet">
+		         				<h4>TWITTER WIDGET</h4>
+		         			</div>
+		         		</div>
+		         		
+					</li>
+					
+					<li class="fourth-col">
+						
+						<div class="widget-block">
+							<h4>CATEGORIES</h4>
+							<ul>
+								<li class="cat-item"><a href="#" >Design</a></li>
+								<li class="cat-item"><a href="#" >Photo</a></li>
+								<li class="cat-item"><a href="#" >Art</a></li>
+								<li class="cat-item"><a href="#" >Game</a></li>
+								<li class="cat-item"><a href="#" >Film</a></li>
+								<li class="cat-item"><a href="#" >TV</a></li>
+							</ul>
+						</div>
+		         		
+					</li>	
+				</ul>
+				<!-- ENDS widgets -->	
+				
+				
+				<!-- bottom -->
+				<div class="footer-bottom">
+					<div class="left">by <a href="http://luiszuno.com" >luiszuno.com</a></div>
+						<ul id="social-bar" class="cf sb">
+							<li><a href="http://www.facebook.com"  title="Become a fan" class="facebook">Facebbok</a></li>
+							<li><a href="http://www.twitter.com" title="Follow my tweets" class="twitter"></a></li>
+							<li><a href="http://plus.google.com" title="Enter my circles" class="plus"></a></li>
+						</ul>
+				</div>	
+				<!-- ENDS bottom -->
+			
+			</div>
+		</footer>
+		<!-- ENDS FOOTER -->
+		<asset:javascript src="lib/bootstrap/bootstrap.min.js"/>
 	</body>
+
 </html>
