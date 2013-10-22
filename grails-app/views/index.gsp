@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>Fans on the Cloud</title>
 
     <!-- Bootstrap core CSS -->
     <asset:stylesheet src="home/carousel.css"/>
@@ -30,7 +30,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Project name</a>
+              <a class="navbar-brand" href="#">Fans on the Cloud</a>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -69,31 +69,34 @@
       </ol>
       <div class="carousel-inner">
         <div class="item active">
-          <img src="data:image/png;base64," data-src="holder.js/100%x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">
+          <!-- <img src="/images/hinchometro.png" data-src="holder.js/100%x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">-->
+          <img src="/images/hinchometro.png"  alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-large btn-primary" href="#">Sign up today</a></p>
+              <h1>HINCHOMETRO.</h1>
+              <p>Hincha por tu equipo favorito para demostrar como seguis a tu equipo!.</p>
+              <p><a class="btn btn-large btn-primary" href="#">Partidos en VIVO</a></p>
             </div>
           </div>
         </div>
         <div class="item">
-          <img src="data:image/png;base64," data-src="holder.js/100%x500/auto/#777:#7a7a7a/text:Second slide" alt="Second slide">
+          <!--<img src="data:image/png;base64," data-src="holder.js/100%x500/auto/#777:#7a7a7a/text:Second slide" alt="Second slide">-->
+          <img src="/images/comentaPartido.png"  alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <h1>COMENTA LOS PARTIDOS</h1>
+              <p>FotC te brinda interacción, información y estadísticas de los partidos que mas te interesan EN VIVO.</p>
               <p><a class="btn btn-large btn-primary" href="#">Learn more</a></p>
             </div>
           </div>
         </div>
         <div class="item">
-          <img src="data:image/png;base64," data-src="holder.js/100%x500/auto/#777:#7a7a7a/text:Third slide" alt="Third slide">
+          <!--<img src="data:image/png;base64," data-src="holder.js/100%x500/auto/#777:#7a7a7a/text:Third slide" alt="Third slide">-->
+          <img src="/images/informacion.png" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <h1>INFORMACIÓN.</h1>
+              <p>Te mantenemos al dia con toda la información, resultados, estadisticas y mucho mas...</p>
               <p><a class="btn btn-large btn-primary" href="#">Browse gallery</a></p>
             </div>
           </div>
@@ -114,22 +117,25 @@
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4">
-          <img class="img-circle" src="data:image/png;base64," data-src="holder.js/140x140" alt="Generic placeholder image">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+          <!--<img class="img-circle" src="data:image/png;base64," data-src="holder.js/140x140" alt="Generic placeholder image">-->
+          <img class="img-circle" src="/images/decimeloAlOido.png" alt="Generic placeholder image">
+          <h2>Decímelo al oído</h2>
+          <p>Riquelme había encendido la alarma al no patear el penal en Mendoza pero este martes se entrenó a la par de sus compañeros y sería fija para recibir a Colón. El enganche tuvo una charla íntima con Bianchi y está bien.</p>
+          <p><a class="btn btn-default" href="#">Leer Detalles &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" src="data:image/png;base64," data-src="holder.js/140x140" alt="Generic placeholder image">
-          <h2>Heading</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+          <!--<img class="img-circle" src="data:image/png;base64," data-src="holder.js/140x140" alt="Generic placeholder image">-->
+          <img class="img-circle" src="/images/noMeSientoCrack.png" alt="Generic placeholder image">
+          <h2>"No me siento crack"</h2>
+          <p>Balanta dice que en Argentina se exagera con respecto al fútbol e intenta mantener el perfil bajo: "La gente piensa que si tú vales tanto tú debes rendir tanto". Y sobre el tema Barcelona contestó: "No puedo vivir de rumores".</p>
+          <p><a class="btn btn-default" href="#">Leer Detalles &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" src="data:image/png;base64," data-src="holder.js/140x140" alt="Generic placeholder image">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+          <!--<img class="img-circle" src="data:image/png;base64," data-src="holder.js/140x140" alt="Generic placeholder image">-->
+          <img class="img-circle" src="/images/recuperaSoldados.png" alt="Generic placeholder image">
+          <h2>Recupera soldados</h2>
+          <p>Gago, Ribair y Zárate trabajaron con pelota a la par de sus compañeros y Bianchi reza para tenerlos el viernes contra Colón. Les busca reemplazo a Ledesma y Caruzzo, quienes fueron informados tras el escándalo en Mendoza.</p>
+          <p><a class="btn btn-default" href="#">Leer Detalles &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 
