@@ -74,7 +74,7 @@
           <div class="container">
             <div class="carousel-caption">
               <h1>HINCHOMETRO.</h1>
-              <p>Hincha por tu equipo favorito para demostrar como seguis a tu equipo!.</p>
+              <p>Hincha por tu equipo favorito para demostrar como lo seguis a todos lados!.</p>
               <p><a class="btn btn-large btn-primary" href="#">Partidos en VIVO</a></p>
             </div>
           </div>
@@ -118,23 +118,24 @@
       <div class="row">
         <div class="col-lg-4">
           <!--<img class="img-circle" src="data:image/png;base64," data-src="holder.js/140x140" alt="Generic placeholder image">-->
-          <img class="img-circle" src="/assets/decimeloAlOido.png" alt="Generic placeholder image">
-          <h2>Decímelo al oído</h2>
-          <p>Riquelme había encendido la alarma al no patear el penal en Mendoza pero este martes se entrenó a la par de sus compañeros y sería fija para recibir a Colón. El enganche tuvo una charla íntima con Bianchi y está bien.</p>
+          <img class="img-circle" src="/assets/misPredicciones.png" alt="Generic placeholder image">
+          <h2>Mis Predicciones</h2>
+          <p>Crea tu predicción acerca de los resultados de los partidos y compite entre amigos. El objetivo del Juego es acumular la mayor cantidad de puntos en base a la actuación real de los equipos en 
+          la liga seleccionada</p>
           <p><a class="btn btn-default" href="#">Leer Detalles &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <!--<img class="img-circle" src="data:image/png;base64," data-src="holder.js/140x140" alt="Generic placeholder image">-->
-          <img class="img-circle" src="/assets/noMeSientoCrack.png" alt="Generic placeholder image">
-          <h2>"No me siento crack"</h2>
-          <p>Balanta dice que en Argentina se exagera con respecto al fútbol e intenta mantener el perfil bajo: "La gente piensa que si tú vales tanto tú debes rendir tanto". Y sobre el tema Barcelona contestó: "No puedo vivir de rumores".</p>
+          <img class="img-circle" src="/assets/torneoDeAmigos.png" alt="Generic placeholder image">
+          <h2>Torneo de Amigos</h2>
+          <p>Con tu prediccion del fixture, enfrentate todas las fechas con tus amigos, compañeros de oficina o familiares, y buscá salir campeón.</p>
           <p><a class="btn btn-default" href="#">Leer Detalles &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <!--<img class="img-circle" src="data:image/png;base64," data-src="holder.js/140x140" alt="Generic placeholder image">-->
-          <img class="img-circle" src="/assets/recuperaSoldados.png" alt="Generic placeholder image">
-          <h2>Recupera soldados</h2>
-          <p>Gago, Ribair y Zárate trabajaron con pelota a la par de sus compañeros y Bianchi reza para tenerlos el viernes contra Colón. Les busca reemplazo a Ledesma y Caruzzo, quienes fueron informados tras el escándalo en Mendoza.</p>
+          <img class="img-circle" src="/assets/fasesDelTorneo.png" alt="Generic placeholder image">
+          <h2>Fase del Torneo</h2>
+          <p>Revisa en que posicion te encuentras del torneo en la fecha actual, verifica los ultimos resultados mismo.</p>
           <p><a class="btn btn-default" href="#">Leer Detalles &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
@@ -146,11 +147,13 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <!--<h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>-->
+          <h2 class="featurette-heading">Fixture de la proxima fecha</h2>
+          <p class="lead">Ponete al dia con los partidos que se vienen.</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+          <!--<img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image">-->
+          <img class="featurette-image img-responsive" src="/assets/fixtureActual.png"  alt="Generic placeholder image">
         </div>
       </div>
 
