@@ -70,7 +70,7 @@
       <div class="carousel-inner">
         <div class="item active">
           <!-- <img src="/images/hinchometro.png" data-src="holder.js/100%x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">-->
-          <img src="/images/hinchometro.png"  alt="First slide">
+          <img src="/assets/hinchometro.png"  alt="First slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>HINCHOMETRO.</h1>
@@ -81,7 +81,7 @@
         </div>
         <div class="item">
           <!--<img src="data:image/png;base64," data-src="holder.js/100%x500/auto/#777:#7a7a7a/text:Second slide" alt="Second slide">-->
-          <img src="/images/comentaPartido.png"  alt="Second slide">
+          <img src="/assets/comentaPartido.png"  alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>COMENTA LOS PARTIDOS</h1>
@@ -92,7 +92,7 @@
         </div>
         <div class="item">
           <!--<img src="data:image/png;base64," data-src="holder.js/100%x500/auto/#777:#7a7a7a/text:Third slide" alt="Third slide">-->
-          <img src="/images/informacion.png" alt="Third slide">
+          <img src="/assets/informacion.png" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>INFORMACIÓN.</h1>
@@ -118,21 +118,21 @@
       <div class="row">
         <div class="col-lg-4">
           <!--<img class="img-circle" src="data:image/png;base64," data-src="holder.js/140x140" alt="Generic placeholder image">-->
-          <img class="img-circle" src="/images/decimeloAlOido.png" alt="Generic placeholder image">
+          <img class="img-circle" src="/assets/decimeloAlOido.png" alt="Generic placeholder image">
           <h2>Decímelo al oído</h2>
           <p>Riquelme había encendido la alarma al no patear el penal en Mendoza pero este martes se entrenó a la par de sus compañeros y sería fija para recibir a Colón. El enganche tuvo una charla íntima con Bianchi y está bien.</p>
           <p><a class="btn btn-default" href="#">Leer Detalles &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <!--<img class="img-circle" src="data:image/png;base64," data-src="holder.js/140x140" alt="Generic placeholder image">-->
-          <img class="img-circle" src="/images/noMeSientoCrack.png" alt="Generic placeholder image">
+          <img class="img-circle" src="/assets/noMeSientoCrack.png" alt="Generic placeholder image">
           <h2>"No me siento crack"</h2>
           <p>Balanta dice que en Argentina se exagera con respecto al fútbol e intenta mantener el perfil bajo: "La gente piensa que si tú vales tanto tú debes rendir tanto". Y sobre el tema Barcelona contestó: "No puedo vivir de rumores".</p>
           <p><a class="btn btn-default" href="#">Leer Detalles &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <!--<img class="img-circle" src="data:image/png;base64," data-src="holder.js/140x140" alt="Generic placeholder image">-->
-          <img class="img-circle" src="/images/recuperaSoldados.png" alt="Generic placeholder image">
+          <img class="img-circle" src="/assets/recuperaSoldados.png" alt="Generic placeholder image">
           <h2>Recupera soldados</h2>
           <p>Gago, Ribair y Zárate trabajaron con pelota a la par de sus compañeros y Bianchi reza para tenerlos el viernes contra Colón. Les busca reemplazo a Ledesma y Caruzzo, quienes fueron informados tras el escándalo en Mendoza.</p>
           <p><a class="btn btn-default" href="#">Leer Detalles &raquo;</a></p>
