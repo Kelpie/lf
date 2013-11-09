@@ -9,7 +9,7 @@ class Player {
 	String lastname
 	Date birthdate
 	BigDecimal heigh
-	Date birthplace
+	String birthplace
 
 	static constraints = {
 	}
