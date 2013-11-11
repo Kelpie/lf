@@ -1,4 +1,6 @@
-package info.livefans
+package info.livefans.tournament
+
+import info.livefans.Tournament
 
 /**
  * @author abertolo
@@ -7,8 +9,8 @@ class TournamentStage {
 
 	Tournament tournament
 	String name
-	Date date_from
-	Date date_to
+	Date dateFrom
+	Date dateTo
 	
     static constraints = {
     }

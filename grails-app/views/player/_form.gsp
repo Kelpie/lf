@@ -10,12 +10,12 @@
 	<g:datePicker name="birthdate" precision="day"  value="${playerInstance?.birthdate}"  />
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'birthplace', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'birthplace', 'error')} ">
 	<label for="birthplace">
 		<g:message code="player.birthplace.label" default="Birthplace" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:datePicker name="birthplace" precision="day"  value="${playerInstance?.birthplace}"  />
+	<g:textField name="birthplace" value="${playerInstance?.birthplace}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'heigh', 'error')} required">

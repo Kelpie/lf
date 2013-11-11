@@ -10,9 +10,11 @@ import spock.lang.*
 class PlayerControllerSpec extends Specification {
 
     def populateValidParams(params) {
-        assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params.name = 'Roberto'
+        params.lastname = 'Papazo'
+        params.birthdate = new Date()
+        params.heigh = 1.78
+        params.birthplace = 'Argentina'
     }
 
     void "Test the index action returns the correct model"() {

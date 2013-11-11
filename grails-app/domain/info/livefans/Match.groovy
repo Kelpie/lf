@@ -1,5 +1,7 @@
 package info.livefans
 
+import info.livefans.tournament.TournamentStage
+
 /**
  * @author abertolo
  */

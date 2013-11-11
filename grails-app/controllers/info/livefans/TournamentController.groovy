@@ -1,5 +1,7 @@
 package info.livefans
 
+import info.livefans.tournament.*
+
 /**
  * @author abertolo
  */
@@ -10,8 +12,11 @@ class TournamentController {
 		redirect(action: "show", id: wc.id)
 	}
 	
-	def show(){
+	def show(Long id){
+		Tournament tournament = Tournament.get(id)
+		
 		//buscar equipos del torneo
+		tournament.teams()
 		//buscar estadios
 		//proximos partidos
 		//mostrar stages 

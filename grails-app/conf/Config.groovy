@@ -120,14 +120,6 @@ log4j = {
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'info.livefans.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'info.livefans.UserRole'
 grails.plugin.springsecurity.authority.className = 'info.livefans.Role'
-grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-	'/':                              ['permitAll'],
-	'/index':                         ['permitAll'],
-	'/index.gsp':                     ['permitAll'],
-	'/**/js/**':                      ['permitAll'],
-	'/**/css/**':                     ['permitAll'],
-	'/**/images/**':                  ['permitAll'],
-    '/**/assets/**':                  ['permitAll'],
-	'/**/favicon.ico':                ['permitAll']
-]
-
+grails.plugin.springsecurity.rejectIfNoRule = false
+grails.plugin.springsecurity.fii.rejectPublicInvocations = false
+grails.plugin.springsecurity.securityConfigType = "Annotation"

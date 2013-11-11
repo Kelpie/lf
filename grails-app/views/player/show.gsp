@@ -36,7 +36,7 @@
 				<li class="fieldcontain">
 					<span id="birthplace-label" class="property-label"><g:message code="player.birthplace.label" default="Birthplace" /></span>
 					
-						<span class="property-value" aria-labelledby="birthplace-label"><g:formatDate date="${playerInstance?.birthplace}" /></span>
+						<span class="property-value" aria-labelledby="birthplace-label"><g:fieldValue bean="${playerInstance}" field="birthplace"/></span>
 					
 				</li>
 				</g:if>

@@ -42,7 +42,7 @@
 					
 						<td><g:link action="show" id="${playerInstance.id}">${fieldValue(bean: playerInstance, field: "birthdate")}</g:link></td>
 					
-						<td><g:formatDate date="${playerInstance.birthplace}" /></td>
+						<td>${fieldValue(bean: playerInstance, field: "birthplace")}</td>
 					
 						<td>${fieldValue(bean: playerInstance, field: "heigh")}</td>
 					
