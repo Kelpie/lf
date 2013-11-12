@@ -12,19 +12,45 @@ class TournamentControllerSpec extends Specification {
 
 
     void "Tournament home"() {
-        when: "The index action is executed"
+        given:
             def brazil2014 = new Tournament( 
                 name:'2014 FIFA World Cup', 
                 logo:'asd',
                 poster:'asd',
                 slogan:'All in One Rhythm',
                 place: 'Brazil'
-            ).save(flush: true)         
+            ).save(flush: true)  
+
+        when: "The index action is executed"
     	   controller.index()
 
         then: "It should redirect to show the wold cup 2014"
             response.redirectedUrl == "/tournament/show/${brazil2014.id}"
     }
 
+    void "show a tournament"(){
+        given:
+            def brazil2014 = new Tournament( 
+                name:'2014 FIFA World Cup', 
+                logo:'asd',
+                poster:'asd',
+                slogan:'All in One Rhythm',
+                place: 'Brazil'
+            ).save(flush: true)  
+
+        when: "The show action is executed"
+            def model = controller.show(brazil2014.id)
+
+        then: "It should search for tournament teams, stadiums, stages and matches"
+            response.status == 200
+            model.tournament == brazil2014
+
+
+        when: "The show action is executed with non-existent id"
+            controller.show(3)
+
+        then: "It should return not found"
+            thrown(info.livefans.exception.httpstatus.NotFoundException)         
+    }
 
 }

@@ -5,7 +5,7 @@ class BootStrap {
 
     def init = { servletContext ->
 
-    	if(Environment.DEVELOPMENT == Environment.current) {
+    	if(Environment.PRODUCTION != Environment.current) {
     		
     		def superuser = new User(username: 'root', password: '12345').save()
     		def roles = [
@@ -22,13 +22,13 @@ class BootStrap {
     			}
     		}
 
-            new Tournament( 
+            def brazil2014 = new Tournament( 
                 name:'2014 FIFA World Cup', 
-                logo:'',
-                poster:'',
+                logo:'asd',
+                poster:'asd',
                 slogan:'All in One Rhythm',
                 place: 'Brazil'
-            ).save()
+            ).save() 
 
     	}
     }

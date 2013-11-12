@@ -22,4 +22,16 @@ class Tournament {
 	def teams(){
 		TournamentTeam.findAllByTournament(this).collect{ it.team }
 	}
+
+	def stadiums(){
+		TournamentStadium.findAllByTournament(this).collect{ it.stadium }
+	}
+
+	def stages(){
+		TournamentStage.findAllByTournament(this)
+	}	
+
+	def matches(){
+		Match.findAllByTournament(this)
+	}		
 }
