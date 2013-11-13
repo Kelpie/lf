@@ -15,7 +15,7 @@ class TournamentStadium {
     }
 
 	static mapping = {
-		tournament  fetch:'join'
+		tournament  fetch:'join', index:'Stadium_Tournament_Idx'
 		stadium  fetch:'join'
 	}
 }

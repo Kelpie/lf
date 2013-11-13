@@ -13,6 +13,7 @@ class MatchGoal {
 	Integer time
 
 	static mapping = {
+		match index:'Goal_Match_Idx'
 		player  fetch:'join'
 	}
 }

@@ -14,6 +14,7 @@ class MatchSubstitution {
 	Integer time
 
 	static mapping = {
+		match index:'Substitution_Match_Idx'
 		playerIn  fetch:'join'
 		playerOut  fetch:'join'
 	}

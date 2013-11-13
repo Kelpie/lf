@@ -11,10 +11,10 @@ class TournamentTeam {
 	Tournament tournament
 	Team team
 	
-    static constraints = {
-    }
+	static constraints = {
+	}
 	static mapping = {
-		tournament fetch:'join'
+		tournament fetch:'join', index:'Team_Tournament_Idx'
 		team fetch:'join'
 	}
 }

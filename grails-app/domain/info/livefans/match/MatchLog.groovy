@@ -14,6 +14,6 @@ class MatchLog {
 	String comment
 
 	static mapping = {
-
+		match index:'Log_Match_Idx'
 	}
 }

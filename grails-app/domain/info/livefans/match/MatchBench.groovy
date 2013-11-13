@@ -12,6 +12,7 @@ class MatchBench {
 	Player player
 
 	static mapping = {
+		match index:'Bench_Match_Idx'
 		player  fetch:'join'
 		team  	fetch:'join'
 	}

@@ -13,6 +13,7 @@ class MatchCard {
 	Integer time
 
 	static mapping = {
+		match index:'Card_Match_Idx'
 		player  fetch:'join'
 	}
 }

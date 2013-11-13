@@ -13,7 +13,11 @@ class MatchFormation {
 	MatchPlayerPosition position
 
     static constraints = {
-		player  fetch:'join'
+	}
+
+    static mapping = {
+    	match index:'Formation_Match_Idx'
+		player fetch:'join'
 		team  fetch:'join'
     }
 }
