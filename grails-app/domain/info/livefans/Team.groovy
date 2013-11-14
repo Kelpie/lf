@@ -12,10 +12,6 @@ class Team {
     static constraints = {
     }
 	static mapping = {
-<<<<<<< HEAD
 		coach  fetch:'join'
-=======
-		coachId  fetch:'join'
->>>>>>> c65642dc0630adb4ccaba8da0d4b3be26b252352
 	}
 }
