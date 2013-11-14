@@ -2,6 +2,14 @@
 
 
 
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'photo', 'error')} ">
+	<label for="photo">
+		<g:message code="player.photo.label" default="Photo" />
+		
+	</label>
+	<g:textField name="photo" value="${playerInstance?.photo}"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'birthdate', 'error')} required">
 	<label for="birthdate">
 		<g:message code="player.birthdate.label" default="Birthdate" />

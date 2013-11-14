@@ -1,12 +1,13 @@
-package info.livefans
+package info.livefans.admin
 
 
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import info.livefans.*
 
 @Transactional(readOnly = true)
-class PlayerController {
+class AdminPlayerController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 

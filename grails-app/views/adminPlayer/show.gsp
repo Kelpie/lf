@@ -23,6 +23,15 @@
 			</g:if>
 			<ol class="property-list player">
 			
+				<g:if test="${playerInstance?.photo}">
+				<li class="fieldcontain">
+					<span id="photo-label" class="property-label"><g:message code="player.photo.label" default="Photo" /></span>
+					
+						<span class="property-value" aria-labelledby="photo-label"><g:fieldValue bean="${playerInstance}" field="photo"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${playerInstance?.birthdate}">
 				<li class="fieldcontain">
 					<span id="birthdate-label" class="property-label"><g:message code="player.birthdate.label" default="Birthdate" /></span>
