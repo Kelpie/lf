@@ -23,22 +23,95 @@ class BootStrap {
     			}
     		}
 
-            //TODO: PLAYERS
-            //TODO: TEAMS
-            //TODO: STADIUMS
-            //TODO: REFEREES
+            def messi = new Player( 
+                name: 'Lionel',
+                lastname: 'Messi',
+                birthdate: new Date().parse("d/M/yyyy H:m:s", "24/06/1987 00:00:00"),
+                heigh: 1.69,
+                birthplace: 'Rosario, Santa Fe, Argentina'
+            ).save()
+
+            def dt = new Player( 
+                name: 'I am',
+                lastname: 'Couch',
+                birthdate: new Date().parse("d/M/yyyy H:m:s", "24/06/1987 00:00:00"),
+                heigh: 1.69,
+                birthplace: 'Capital Federal, Buenos Aires, Argentina'
+            ).save()          
+
+            def arg = new Team( 
+                name: 'team.argentina',
+                logo: '/assets/country/argentina.png',
+                coach : dt,
+            ).save()
+
+            def netherlands = new Team( 
+                name: 'team.netherlands',
+                logo: '/assets/country/netherlands.png',
+                coach : dt,
+            ).save()
+
+            def usa = new Team( 
+                name: 'team.usa',
+                logo: '/assets/country/usa.png',
+                coach : dt,
+            ).save()
+
+            def italy = new Team( 
+                name: 'team.italy',
+                logo: '/assets/country/italy.png',
+                coach : dt,
+            ).save()
+
+            def australia = new Team( 
+                name: 'team.australia',
+                logo: '/assets/country/australia.png',
+                coach : dt,
+            ).save()
+
+            def france = new Team( 
+                name: 'team.france',
+                logo: '/assets/country/france.png',
+                coach : dt,
+            ).save()
+
+            def england = new Team( 
+                name: 'team.england',
+                logo: '/assets/country/england.png',
+                coach : dt,
+            ).save()
+
+            def colombia = new Team( 
+                name: 'team.colombia',
+                logo: '/assets/country/colombia.png',
+                coach : dt,
+            ).save()
+
+            def maracana = new Stadium( 
+                name: 'place.maracana.stadium',
+                location: 'place.rio.de.janeiro',
+                latitude: -22.912167,
+                longitude: -43.230164
+            ).save()
+         
+            def ref = new Referee( 
+                name:'William Selorm',
+                lastname:'Agbovi',
+                birthdate: new Date().parse("d/M/yyyy H:m:s", "01/01/1972 00:00:00"),
+                birthplace: 'place.ghana',
+            ).save()
 
             def brazil2014 = new Tournament( 
-                name:'2014 FIFA World Cup', 
+                name:'tournament.fifa.world.cup.2014', 
                 logo:'asd',
                 poster:'asd',
-                slogan:'All in One Rhythm',
-                place: 'Brazil'
+                slogan:'tournament.fifa.world.cup.2014.slogan',
+                place: 'place.brazil'
             ).save()
 
             def finals = new TournamentStage(
                 tournament: brazil2014,
-                name: 'Finals',
+                name: 'tournament.stage.finals',
                 rank: 1,
                 next: null,                
                 type: TournamentStageType.SINGLE_MATCH,
@@ -48,7 +121,7 @@ class BootStrap {
 
             def semifinals = new TournamentStage(
                 tournament: brazil2014,
-                name: 'Semi-finals',
+                name: 'tournament.stage.semifinals',
                 rank: 2,
                 next: finals,                
                 type: TournamentStageType.SINGLE_MATCH,
@@ -58,7 +131,7 @@ class BootStrap {
 
             def knockout = new TournamentStage(
                 tournament: brazil2014,
-                name: 'Knockout Stage',
+                name: 'tournament.stage.knockout',
                 rank: 3,
                 next: semifinals,                
                 type: TournamentStageType.KNOCKOUT,
@@ -68,7 +141,7 @@ class BootStrap {
 
             def groupA = new TournamentStage(
                 tournament: brazil2014,
-                name: 'Group "A"',
+                name: 'tournament.stage.group.b.a',
                 rank: 4,
                 next: knockout,                
                 type: TournamentStageType.LEAGUE,
@@ -78,7 +151,7 @@ class BootStrap {
 
             def groupB = new TournamentStage(
                 tournament: brazil2014,
-                name: 'Group "B"',
+                name: 'tournament.stage.group.b',
                 rank: 4,
                 next: knockout,
                 type: TournamentStageType.LEAGUE,
@@ -88,7 +161,7 @@ class BootStrap {
 
             def groups = new TournamentStage(
                 tournament: brazil2014,
-                name: 'Group Stage',
+                name: 'tournament.stage.group',
                 rank: 5,
                 next: knockout,                
                 type: TournamentStageType.GROUP,
@@ -96,10 +169,198 @@ class BootStrap {
                 dateTo:   new Date().parse("d/M/yyyy H:m:s", "26/06/2010 00:00:00")
             ).save()
 
-            //TODO: TOURNAMENT_TEAMS
-            //TODO: TOURNAMENT_STADIUMS
+            new TournamentStageTeam(stage: groupA, team: arg).save()
+            new TournamentStageTeam(stage: groupA, team: netherlands).save()
+            new TournamentStageTeam(stage: groupA, team: usa).save()
+            new TournamentStageTeam(stage: groupA, team: italy).save()
 
-            //TODO: MATCHES                        
+            new TournamentStageTeam(stage: groupB, team: australia).save()
+            new TournamentStageTeam(stage: groupB, team: france).save()
+            new TournamentStageTeam(stage: groupB, team: england).save()
+            new TournamentStageTeam(stage: groupB, team: colombia).save()
+
+            new TournamentStadium(tournament: brazil2014, stadium: maracana).save()
+
+            def ga1match = new Match(
+                tournament: brazil2014,
+                stage: groupA,
+                teamA: arg,
+                teamB: netherlands,
+                scoreA: null,
+                scoreB: null,
+                stadium: maracana,
+                referee1: ref,
+                referee2: ref,
+                referee3: ref,
+                referee4: ref,
+                date: new Date().parse("d/M/yyyy H:m:s", "12/06/2014 00:00:00")
+            ).save()
+
+            def ga2match = new Match(
+                tournament: brazil2014,
+                stage: groupA,
+                teamA: arg,
+                teamB: usa,
+                scoreA: null,
+                scoreB: null,
+                stadium: maracana,
+                referee1: ref,
+                referee2: ref,
+                referee3: ref,
+                referee4: ref,
+                date: new Date().parse("d/M/yyyy H:m:s", "13/06/2014 00:00:00")
+            ).save()   
+
+            def ga3match = new Match(
+                tournament: brazil2014,
+                stage: groupA,
+                teamA: arg,
+                teamB: italy,
+                scoreA: null,
+                scoreB: null,
+                stadium: maracana,
+                referee1: ref,
+                referee2: ref,
+                referee3: ref,
+                referee4: ref,
+                date: new Date().parse("d/M/yyyy H:m:s", "14/06/2014 00:00:00")
+            ).save()
+
+            def ga4match = new Match(
+                tournament: brazil2014,
+                stage: groupA,
+                teamA: netherlands,
+                teamB: usa,
+                scoreA: null,
+                scoreB: null,
+                stadium: maracana,
+                referee1: ref,
+                referee2: ref,
+                referee3: ref,
+                referee4: ref,
+                date: new Date().parse("d/M/yyyy H:m:s", "15/06/2014 00:00:00")
+            ).save()
+
+            def ga5match = new Match(
+                tournament: brazil2014,
+                stage: groupA,
+                teamA: netherlands,
+                teamB: italy,
+                scoreA: null,
+                scoreB: null,
+                stadium: maracana,
+                referee1: ref,
+                referee2: ref,
+                referee3: ref,
+                referee4: ref,
+                date: new Date().parse("d/M/yyyy H:m:s", "16/06/2014 00:00:00")
+            ).save()
+
+            def ga6match = new Match(
+                tournament: brazil2014,
+                stage: groupA,
+                teamA: usa,
+                teamB: italy,
+                scoreA: null,
+                scoreB: null,
+                stadium: maracana,
+                referee1: ref,
+                referee2: ref,
+                referee3: ref,
+                referee4: ref,
+                date: new Date().parse("d/M/yyyy H:m:s", "17/06/2014 00:00:00")
+            ).save()
+
+            //...
+            def gb1match = new Match(
+                tournament: brazil2014,
+                stage: groupB,
+                teamA: australia,
+                teamB: france,
+                scoreA: null,
+                scoreB: null,
+                stadium: maracana,
+                referee1: ref,
+                referee2: ref,
+                referee3: ref,
+                referee4: ref,
+                date: new Date().parse("d/M/yyyy H:m:s", "12/06/2014 00:00:00")
+            ).save()
+
+            def gb2match = new Match(
+                tournament: brazil2014,
+                stage: groupB,
+                teamA: australia,
+                teamB: england,
+                scoreA: null,
+                scoreB: null,
+                stadium: maracana,
+                referee1: ref,
+                referee2: ref,
+                referee3: ref,
+                referee4: ref,
+                date: new Date().parse("d/M/yyyy H:m:s", "13/06/2014 00:00:00")
+            ).save()   
+
+            def gb3match = new Match(
+                tournament: brazil2014,
+                stage: groupB,
+                teamA: australia,
+                teamB: colombia,
+                scoreA: null,
+                scoreB: null,
+                stadium: maracana,
+                referee1: ref,
+                referee2: ref,
+                referee3: ref,
+                referee4: ref,
+                date: new Date().parse("d/M/yyyy H:m:s", "14/06/2014 00:00:00")
+            ).save()
+
+            def gb4match = new Match(
+                tournament: brazil2014,
+                stage: groupB,
+                teamA: france,
+                teamB: england,
+                scoreA: null,
+                scoreB: null,
+                stadium: maracana,
+                referee1: ref,
+                referee2: ref,
+                referee3: ref,
+                referee4: ref,
+                date: new Date().parse("d/M/yyyy H:m:s", "15/06/2014 00:00:00")
+            ).save()
+
+            def gb5match = new Match(
+                tournament: brazil2014,
+                stage: groupB,
+                teamA: france,
+                teamB: colombia,
+                scoreA: null,
+                scoreB: null,
+                stadium: maracana,
+                referee1: ref,
+                referee2: ref,
+                referee3: ref,
+                referee4: ref,
+                date: new Date().parse("d/M/yyyy H:m:s", "16/06/2014 00:00:00")
+            ).save()
+
+            def gb6match = new Match(
+                tournament: brazil2014,
+                stage: groupB,
+                teamA: england,
+                teamB: colombia,
+                scoreA: null,
+                scoreB: null,
+                stadium: maracana,
+                referee1: ref,
+                referee2: ref,
+                referee3: ref,
+                referee4: ref,
+                date: new Date().parse("d/M/yyyy H:m:s", "17/06/2014 00:00:00")
+            ).save()            
 
     	}
     }

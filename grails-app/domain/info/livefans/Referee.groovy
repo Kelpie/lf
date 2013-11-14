@@ -10,7 +10,7 @@ class Referee {
 	String name
 	String lastname
 	Date birthdate
-	Date birthplace
+	String birthplace
 	
 	static constraints = {
 	}

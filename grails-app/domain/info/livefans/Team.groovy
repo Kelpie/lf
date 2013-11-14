@@ -7,11 +7,11 @@ class Team {
 
 	String name
 	String logo
-	Player coach_id
+	Player coach
 	
     static constraints = {
     }
 	static mapping = {
-		coach_id  fetch:'join'
+		coachId  fetch:'join'
 	}
 }

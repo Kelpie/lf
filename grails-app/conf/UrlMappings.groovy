@@ -3,7 +3,7 @@ import info.livefans.exception.httpstatus.*
 class UrlMappings {
 
 	static mappings = {
-        "/$controller/$action?/$id?(.${format})?"{
+        "/$controller/$action?/$id(-${natural})(.${format})?"{
             constraints {
                 // apply constraints here
             }
