@@ -9,10 +9,7 @@
 	<body>
 		<div class="nav" role="navigation">	
 			<div>
-				<a href="#list-match" class="btn btn-warning" tabindex="-1">
-					<g:message code="default.link.skip.label" default="Skip to content&hellip;"/>
-				</a>
-				<a class="btn btn-primary" href="${createLink(uri: '/')}">
+				<a class="btn btn-primary" href="${createLink(uri: '/admin/index')}">
 					<g:message code="default.home.label"/>
 				</a>
 				<g:link class="btn btn-success" action="create">
@@ -40,6 +37,8 @@
 						<g:sortableColumn property="date" title="${message(code: 'match.date.label', default: 'Date')}" />
 					
 						<th><g:message code="match.referee1.label" default="Referee1" /></th>
+
+						<th><g:message code="matchInstance.id" default="View Details" /></th>
 					
 					</tr>
 				</thead>
@@ -48,9 +47,7 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td>
-							<g:link action="show" id="${matchInstance.id}">
-								<g:message code="${matchInstance.teamA.name}" />
-							</g:link>
+							<g:message code="${matchInstance.teamA.name}" />
 						</td>
 					
 						<td>
@@ -71,6 +68,12 @@
 					
 						<td>
 							<g:message code="${matchInstance.referee1.name}" />
+						</td>
+
+						<td>
+							<g:link action="show" id="${matchInstance.id}">
+								<span class="glyphicon glyphicon-eye-open"></span>
+							</g:link>
 						</td>
 					
 					</tr>

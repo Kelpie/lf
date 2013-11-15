@@ -10,10 +10,7 @@
 	<body>
 		<div class="nav" role="navigation">	
 			<div>
-				<a href="#list-match" class="btn btn-warning" tabindex="-1">
-					<g:message code="default.link.skip.label" default="Skip to content&hellip;"/>
-				</a>
-				<a class="btn btn-primary" href="${createLink(uri: '/')}">
+				<a class="btn btn-primary" href="${createLink(uri: '/admin/index')}">
 					<g:message code="default.home.label"/>
 				</a>
 				<g:link class="btn btn-success" action="create">
@@ -35,18 +32,31 @@
 						<g:sortableColumn property="logo" title="${message(code: 'team.logo.label', default: 'Logo')}" />
 					
 						<g:sortableColumn property="name" title="${message(code: 'team.name.label', default: 'Name')}" />
-					
+						
+						<th><g:message code="teamInstance.id" default="View Details" /></th>
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${teamInstanceList}" status="i" var="teamInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${teamInstance.id}">${fieldValue(bean: teamInstance, field: "coach")}</g:link></td>
+						<td>
+								<!--${fieldValue(bean: teamInstance, field: "coach")}!-->
+								<g:message code="${teamInstance.coach}" />
+						</td>
 					
 						<td>${fieldValue(bean: teamInstance, field: "logo")}</td>
 					
-						<td>${fieldValue(bean: teamInstance, field: "name")}</td>
+						<!--<td>${fieldValue(bean: teamInstance, field: "name")}</td>!-->
+						<td>
+							<g:message code="${teamInstance.name}" />
+						</td>
+
+						<td>
+							<g:link action="show" id="${teamInstance.id}">
+								<span class="glyphicon glyphicon-eye-open"></span>
+							</g:link>
+						</td>
 					
 					</tr>
 				</g:each>

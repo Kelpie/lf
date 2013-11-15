@@ -1,5 +1,3 @@
-<!-- TODO: llamadas a todas las vistas INDEX. --!>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,27 +7,22 @@
 	</head>
 	<body>
 		<br>
-		<a href="/admin/match/index"  class="skip" tabindex="-1">
+		<a href="/admin/match/index"  class="btn btn-primary" tabindex="-1">
 			<g:message code="default.link.skip.label" default="Match"/>
 		</a>
-		<br>
-		<a href="/admin/player/index"  class="skip" tabindex="-1">
+		<a href="/admin/player/index"  class="btn btn-success" tabindex="-1">
 			<g:message code="default.link.skip.label" default="Player"/>
 		</a>
-		<br>
-		<a href="/admin/referee/index"  class="skip" tabindex="-1">
+		<a href="/admin/referee/index"  class="btn btn-info" tabindex="-1">
 			<g:message code="default.link.skip.label" default="Referee"/>
 		</a>
-		<br>
-		<a href="/admin/stadium/index"  class="skip" tabindex="-1">
+		<a href="/admin/stadium/index"  class="btn btn-warning" tabindex="-1">
 			<g:message code="default.link.skip.label" default="Stadium"/>
 		</a>
-		<br>
-		<a href="/admin/team/index"  class="skip" tabindex="-1">
+		<a href="/admin/team/index"  class="btn btn-danger" tabindex="-1">
 			<g:message code="default.link.skip.label" default="Team"/>
 		</a>
-		<br>
-		<a href="/admin/tournament/index"  class="skip" tabindex="-1">
+		<a href="/admin/tournament/index"  class="btn btn-primary" tabindex="-1">
 			<g:message code="default.link.skip.label" default="Tournament"/>
 		</a>
 	</body>

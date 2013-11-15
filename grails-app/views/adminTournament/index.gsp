@@ -10,10 +10,7 @@
 	<body>
 		<div class="nav" role="navigation">	
 			<div>
-				<a href="#list-match" class="btn btn-warning" tabindex="-1">
-					<g:message code="default.link.skip.label" default="Skip to content&hellip;"/>
-				</a>
-				<a class="btn btn-primary" href="${createLink(uri: '/')}">
+				<a class="btn btn-primary" href="${createLink(uri: '/admin/index')}">
 					<g:message code="default.home.label"/>
 				</a>
 				<g:link class="btn btn-success" action="create">
@@ -48,13 +45,25 @@
 					
 						<td><g:link action="show" id="${tournamentInstance.id}">${fieldValue(bean: tournamentInstance, field: "logo")}</g:link></td>
 					
-						<td>${fieldValue(bean: tournamentInstance, field: "name")}</td>
+						<!--<td>${fieldValue(bean: tournamentInstance, field: "name")}</td>!-->
+						<td>
+							<g:message code="${tournamentInstance.name}" />
+						</td>
 					
-						<td>${fieldValue(bean: tournamentInstance, field: "place")}</td>
+						<!--<td>${fieldValue(bean: tournamentInstance, field: "place")}</td>!-->
+						<td>
+							<g:message code="${tournamentInstance.place}" />
+						</td>
 					
-						<td>${fieldValue(bean: tournamentInstance, field: "poster")}</td>
+						<!--<td>${fieldValue(bean: tournamentInstance, field: "poster")}</td>!-->
+						<td>
+							<g:message code="${tournamentInstance.poster}" />
+						</td>
 					
-						<td>${fieldValue(bean: tournamentInstance, field: "slogan")}</td>
+						<!--<td>${fieldValue(bean: tournamentInstance, field: "slogan")}</td>!-->
+						<td>
+							<g:message code="${tournamentInstance.slogan}" />
+						</td>
 					
 					</tr>
 				</g:each>

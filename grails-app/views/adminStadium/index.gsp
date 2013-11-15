@@ -10,10 +10,7 @@
 	<body>
 		<div class="nav" role="navigation">	
 			<div>
-				<a href="#list-match" class="btn btn-warning" tabindex="-1">
-					<g:message code="default.link.skip.label" default="Skip to content&hellip;"/>
-				</a>
-				<a class="btn btn-primary" href="${createLink(uri: '/')}">
+				<a class="btn btn-primary" href="${createLink(uri: '/admin/index')}">
 					<g:message code="default.home.label"/>
 				</a>
 				<g:link class="btn btn-success" action="create">
@@ -46,16 +43,23 @@
 				<g:each in="${stadiumInstanceList}" status="i" var="stadiumInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${stadiumInstance.id}">${fieldValue(bean: stadiumInstance, field: "latitude")}</g:link></td>
+						<td>
+							<g:link action="show" id="${stadiumInstance.id}">
+								${fieldValue(bean: stadiumInstance, field: "latitude")}
+							</g:link>
+						</td>
 					
 						<td>${fieldValue(bean: stadiumInstance, field: "longitude")}</td>
 					
 						<td>${fieldValue(bean: stadiumInstance, field: "photo")}</td>
 					
-						<td>${fieldValue(bean: stadiumInstance, field: "location")}</td>
+						<!--<td>${fieldValue(bean: stadiumInstance, field: "location")}</td>!-->
+						<td><g:message code="${stadiumInstance.location}" /></td>
 					
-						<td>${fieldValue(bean: stadiumInstance, field: "name")}</td>
-					
+						<!--<td>${fieldValue(bean: stadiumInstance, field: "name")}</td>!-->
+						<td><g:message code="${stadiumInstance.name}" /></td>
+
+
 					</tr>
 				</g:each>
 				</tbody>
