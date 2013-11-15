@@ -1,0 +1,17 @@
+.trnmnt-panel-info{
+	text-decoration: none !important;
+	width: 100% !important;	
+}
+
+.trnmnt-panel-info:hover{
+	background-color: #F5F5F5 !important;
+}
+
+.trnmnt-panel-info p span{
+	padding-left: 15px;
+}
+
+.trnmnt-panel-info p img{
+	max-height: 50px;
+	max-width: 65px;
+}

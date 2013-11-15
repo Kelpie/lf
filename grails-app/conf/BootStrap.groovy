@@ -41,49 +41,49 @@ class BootStrap {
 
             def arg = new Team( 
                 name: 'team.argentina',
-                logo: '/assets/country/argentina.png',
+                logo: 'country/argentina.png',
                 coach : dt,
             ).save()
 
             def netherlands = new Team( 
                 name: 'team.netherlands',
-                logo: '/assets/country/netherlands.png',
+                logo: 'country/netherlands.png',
                 coach : dt,
             ).save()
 
             def usa = new Team( 
                 name: 'team.usa',
-                logo: '/assets/country/usa.png',
+                logo: 'country/usa.png',
                 coach : dt,
             ).save()
 
             def italy = new Team( 
                 name: 'team.italy',
-                logo: '/assets/country/italy.png',
+                logo: 'country/italy.png',
                 coach : dt,
             ).save()
 
             def australia = new Team( 
                 name: 'team.australia',
-                logo: '/assets/country/australia.png',
+                logo: 'country/australia.png',
                 coach : dt,
             ).save()
 
             def france = new Team( 
                 name: 'team.france',
-                logo: '/assets/country/france.png',
+                logo: 'country/france.png',
                 coach : dt,
             ).save()
 
             def england = new Team( 
                 name: 'team.england',
-                logo: '/assets/country/england.png',
+                logo: 'country/england.png',
                 coach : dt,
             ).save()
 
             def colombia = new Team( 
                 name: 'team.colombia',
-                logo: '/assets/country/colombia.png',
+                logo: 'country/colombia.png',
                 coach : dt,
             ).save()
 
@@ -91,7 +91,8 @@ class BootStrap {
                 name: 'place.maracana.stadium',
                 location: 'place.rio.de.janeiro',
                 latitude: -22.912167,
-                longitude: -43.230164
+                longitude: -43.230164,
+                photo: 'stadium/maracana.jpeg'
             ).save()
          
             def ref = new Referee( 

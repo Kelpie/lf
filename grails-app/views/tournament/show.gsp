@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<meta name="layout" content="/public">
+		<asset:stylesheet src="page/tournament.show.css"/>
 	</head>
 	<body>
 		<g:set var="currentStage" value="${tournament.currentStage()}" />
@@ -57,7 +58,68 @@
 				</div>
 			</div>
 		</div>
-		Show tournament: ${currentStage.name}
-		<g:message code="${currentStage.name}"/>
+		<div class="row">
+			<div class="col-md-12">
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-3">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">Teams</h3>
+					</div>
+					<div class="panel-body">
+						<ul class="list-unstyled">
+							<li>
+								<a class="trnmnt-panel-info" href="#">
+									<p>
+										<asset:image src="country/argentina.png" />
+										<span>Argentina</span>
+									</p>								
+								</a>
+							</li>
+							<li>
+								<a class="trnmnt-panel-info" href="#">
+									<p>
+										<asset:image src="country/france.png" />
+										<span>France</span>
+									</p>								
+								</a>
+							</li>
+							<li>
+								<a class="trnmnt-panel-info" href="#">
+									<p>
+										<asset:image src="country/italy.png" />
+										<span>Italy</span>
+									</p>						
+								</a>
+							</li>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">Stadiums</h3>
+					</div>
+					<div class="panel-body">
+						<ul class="list-unstyled">
+							<li>
+								<a class="trnmnt-panel-info" href="#">
+									<p>
+										<asset:image src="stadium/maracana.jpeg"/>
+										<span>Maracana</span>
+									</p>						
+								</a>
+							</li>
+						</ul>					
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3"></div>
+		</div>		
 	</body>
 </html>
