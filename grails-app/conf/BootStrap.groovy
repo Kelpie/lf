@@ -103,7 +103,7 @@ class BootStrap {
 
             def brazil2014 = new Tournament( 
                 name:'tournament.fifa.world.cup.2014', 
-                logo:'asd',
+                logo:'tournament/WC2014.logo.png',
                 poster:'asd',
                 slogan:'tournament.fifa.world.cup.2014.slogan',
                 place: 'place.brazil'

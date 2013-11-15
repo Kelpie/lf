@@ -23,5 +23,9 @@ abstract class RequestUtils {
 			throw new NotFoundException("${domain} instance with id ${id} is not found.")
 
 		return d
-	}	
+	}
+
+	static def forSeoUrl(String str){
+		str.replaceAll(' ', '-')
+	}
 }

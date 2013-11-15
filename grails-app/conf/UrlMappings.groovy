@@ -3,11 +3,17 @@ import info.livefans.exception.httpstatus.*
 class UrlMappings {
 
 	static mappings = {
-        "/(?!admin*)$controller/$action?/$id?(.${format})?"{
-            constraints {
-                // apply constraints here
-            }
+
+
+        "/tournament/$id/$name" {
+            controller = "tournament"
+            action = "show"
         }
+
+
+        /**
+        * INTERNAL ADMIN
+        **/
         "/admin/player/$action"(controller: "adminPlayer")
         "/admin/team/$action"(controller: "adminTeam")
         "/admin/stadium/$action"(controller: "adminStadium")
@@ -17,6 +23,12 @@ class UrlMappings {
         "/admin/$action"(controller: "admin")
         "/"(view:"/index")
         
+
+        "/$controller/$action?/$id?(.${format})?"{
+            constraints {
+                // apply constraints here
+            }
+        }
 
 
         /**
