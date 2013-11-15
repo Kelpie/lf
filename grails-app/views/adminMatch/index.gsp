@@ -1,4 +1,3 @@
-
 <%@ page import="info.livefans.Match" %>
 <!DOCTYPE html>
 <html>
@@ -8,19 +7,25 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#list-match" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
+		<div class="nav" role="navigation">	
+			<div>
+				<a href="#list-match" class="btn btn-warning" tabindex="-1">
+					<g:message code="default.link.skip.label" default="Skip to content&hellip;"/>
+				</a>
+				<a class="btn btn-primary" href="${createLink(uri: '/')}">
+					<g:message code="default.home.label"/>
+				</a>
+				<g:link class="btn btn-success" action="create">
+					<g:message code="default.new.label" args="[entityName]" />
+				</g:link>
+			</div>
 		</div>
 		<div id="list-match" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table>
+			<table class="table table-striped">
 			<thead>
 					<tr>
 					
@@ -42,17 +47,31 @@
 				<g:each in="${matchInstanceList}" status="i" var="matchInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${matchInstance.id}">${fieldValue(bean: matchInstance, field: "teamA")}</g:link></td>
+						<td>
+							<g:link action="show" id="${matchInstance.id}">
+								<g:message code="${matchInstance.teamA.name}" />
+							</g:link>
+						</td>
 					
-						<td>${fieldValue(bean: matchInstance, field: "teamB")}</td>
+						<td>
+							<g:message code="${matchInstance.teamB.name}" />
+						</td>
 					
-						<td>${fieldValue(bean: matchInstance, field: "scoreA")}</td>
+						<td>
+							${fieldValue(bean: matchInstance, field: "scoreA")}
+						</td>
 					
-						<td>${fieldValue(bean: matchInstance, field: "scoreB")}</td>
+						<td>
+							${fieldValue(bean: matchInstance, field: "scoreB")}
+						</td>
 					
-						<td><g:formatDate date="${matchInstance.date}" /></td>
+						<td>
+							<g:formatDate date="${matchInstance.date}" />
+						</td>
 					
-						<td>${fieldValue(bean: matchInstance, field: "referee1")}</td>
+						<td>
+							<g:message code="${matchInstance.referee1.name}" />
+						</td>
 					
 					</tr>
 				</g:each>
