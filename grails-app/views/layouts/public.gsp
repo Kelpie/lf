@@ -29,15 +29,15 @@
 					<a class="navbar-brand" href="/">Live Fans</a>
 				</div>
 				<div class="navbar-collapse collapse">
-					<a href="#" class="btn btn-danger navbar-btn navbar-right">Create Free Account</a>
+					<a href="#" class="btn btn-danger navbar-btn navbar-right"><g:message code="create.free.account"/></a>
 					<form class="navbar-form navbar-right">
 						<div class="form-group">
-							<input type="text" placeholder="Email" class="form-control">
+							<input type="text" placeholder="<g:message code="email"/>" class="form-control">
 						</div>
 						<div class="form-group">
-							<input type="password" placeholder="Password" class="form-control">
+							<input type="password" placeholder="<g:message code="password"/>" class="form-control">
 						</div>
-						<button type="submit" class="btn btn-success">Sign in</button>
+						<button type="submit" class="btn btn-success"><g:message code="sign.in"/></button>
 					</form>
 				</div>
 				<!--/.navbar-collapse -->

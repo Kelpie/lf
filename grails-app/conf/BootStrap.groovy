@@ -117,7 +117,7 @@ class BootStrap {
                 next: null,                
                 type: TournamentStageType.SINGLE_MATCH,
                 dateFrom: new Date().parse("d/M/yyyy H:m:s", "12/07/2014 00:00:00"),
-                dateTo:   new Date().parse("d/M/yyyy H:m:s", "13/07/2010 00:00:00")
+                dateTo:   new Date().parse("d/M/yyyy H:m:s", "13/07/2014 00:00:00")
             ).save()  
 
             def semifinals = new TournamentStage(
@@ -127,7 +127,7 @@ class BootStrap {
                 next: finals,                
                 type: TournamentStageType.SINGLE_MATCH,
                 dateFrom: new Date().parse("d/M/yyyy H:m:s", "08/07/2014 00:00:00"),
-                dateTo:   new Date().parse("d/M/yyyy H:m:s", "13/07/2010 00:00:00")
+                dateTo:   new Date().parse("d/M/yyyy H:m:s", "13/07/2014 00:00:00")
             ).save()
 
             def knockout = new TournamentStage(
@@ -137,17 +137,17 @@ class BootStrap {
                 next: semifinals,                
                 type: TournamentStageType.KNOCKOUT,
                 dateFrom: new Date().parse("d/M/yyyy H:m:s", "08/07/2014 00:00:00"),
-                dateTo:   new Date().parse("d/M/yyyy H:m:s", "13/07/2010 00:00:00")
+                dateTo:   new Date().parse("d/M/yyyy H:m:s", "13/07/2014 00:00:00")
             ).save()
 
             def groupA = new TournamentStage(
                 tournament: brazil2014,
-                name: 'tournament.stage.group.b.a',
+                name: 'tournament.stage.group.a',
                 rank: 4,
                 next: knockout,                
                 type: TournamentStageType.LEAGUE,
                 dateFrom: new Date().parse("d/M/yyyy H:m:s", "12/06/2014 00:00:00"),
-                dateTo:   new Date().parse("d/M/yyyy H:m:s", "23/06/2010 00:00:00")
+                dateTo:   new Date().parse("d/M/yyyy H:m:s", "23/06/2014 00:00:00")
             ).save()
 
             def groupB = new TournamentStage(
@@ -157,7 +157,7 @@ class BootStrap {
                 next: knockout,
                 type: TournamentStageType.LEAGUE,
                 dateFrom: new Date().parse("d/M/yyyy H:m:s", "13/06/2014 00:00:00"),
-                dateTo:   new Date().parse("d/M/yyyy H:m:s", "23/06/2010 00:00:00")
+                dateTo:   new Date().parse("d/M/yyyy H:m:s", "23/06/2014 00:00:00")
             ).save()
 
             def groups = new TournamentStage(
@@ -167,7 +167,7 @@ class BootStrap {
                 next: knockout,                
                 type: TournamentStageType.GROUP,
                 dateFrom: new Date().parse("d/M/yyyy H:m:s", "12/06/2014 00:00:00"),
-                dateTo:   new Date().parse("d/M/yyyy H:m:s", "26/06/2010 00:00:00")
+                dateTo:   new Date().parse("d/M/yyyy H:m:s", "26/06/2014 00:00:00")
             ).save()
 
             new TournamentStageTeam(stage: groupA, team: arg).save()
@@ -180,6 +180,14 @@ class BootStrap {
             new TournamentStageTeam(stage: groupB, team: england).save()
             new TournamentStageTeam(stage: groupB, team: colombia).save()
 
+            new TournamentStageTeam(stage: groups, team: arg).save()
+            new TournamentStageTeam(stage: groups, team: netherlands).save()
+            new TournamentStageTeam(stage: groups, team: usa).save()
+            new TournamentStageTeam(stage: groups, team: italy).save()
+            new TournamentStageTeam(stage: groups, team: australia).save()
+            new TournamentStageTeam(stage: groups, team: france).save()
+            new TournamentStageTeam(stage: groups, team: england).save()
+            new TournamentStageTeam(stage: groups, team: colombia).save()
             new TournamentStadium(tournament: brazil2014, stadium: maracana).save()
 
             def ga1match = new Match(

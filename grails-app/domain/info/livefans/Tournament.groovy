@@ -20,7 +20,7 @@ class Tournament {
 	}
 
 	def teams(){
-		TournamentTeam.findAllByTournament(this).collect{ it.team }
+		TournamentStageTeam.findAllByStage(stages().first()).collect{ it.team }
 	}
 
 	def stadiums(){
@@ -42,7 +42,10 @@ class Tournament {
 			lt("dateTo", now)
 			order("rank", "desc")
 		}
-		stages?.first()
+		if (!stages.isEmpty())
+			stages.first()
+
+		return null
 	}
 
 	def nextMatches(){

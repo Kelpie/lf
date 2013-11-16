@@ -23,4 +23,21 @@ class TournamentStage {
 	static mapping = {
 		tournament  fetch:'join', index:'Stage_Tournament_Idx'
 	}
+
+	boolean isPlaying(){
+		def now = System.currentTimeMillis()
+		if(now >= dateFrom.time && now < dateTo.time)
+			return true
+
+		return false
+	}
+
+	boolean isFinished(){
+		def now = System.currentTimeMillis()
+		if(now > dateTo.time)
+			return true
+
+		return false
+	}
+
 }
