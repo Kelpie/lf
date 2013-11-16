@@ -48,6 +48,18 @@ class Tournament {
 		return null
 	}
 
+	def matches(){
+		matches(null)
+	}		
+
+	def matches(Integer howMany){
+		def opt = [sort: "date", order: "asc"]
+		if(howMany)
+			opt.max = howMany
+
+		Match.findAllByTournament(this, opt)
+	}
+
 	def nextMatches(){
 		nextMatches(null)
 	}		

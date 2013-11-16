@@ -37,17 +37,53 @@
 					</div>
 				</div>
 			</div>
+			<g:set var="matches" value="${tournament.nextMatches(3)}" />
+			<g:if test="${matches.isEmpty()}">
+				<g:set var="matches" value="${tournament.matches(3)}" />
+				<g:set var="panelTitle" value="${g.message(code:'last.matches')}" />
+			</g:if>
+			<g:else>
+				<g:set var="panelTitle" value="${g.message(code:'next.matches')}" />
+			</g:else>			
 			<div class="col-md-4">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title"><g:message code="next.matches"/></h3>
+						<h3 class="panel-title">${panelTitle}</h3>
 					</div>
 					<div class="panel-body">
 						<div class="list-group">
-							<g:each var="stage" in="${tournament.nextMatches(3)}">
-								<a href="#" class="list-group-item">
-									<h4 class="list-group-item-heading">List group item heading</h4>
-									<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+							<g:each var="match" in="${matches}">
+								<g:set var="teamAname" value="${g.message(code:match.teamA.name)}" />
+								<g:set var="teamBname" value="${g.message(code:match.teamB.name)}" />
+								<g:set var="stageName" value="${g.message(code:match.stage.name)}" />
+								<a href="/match/${match.id}/${teamAname}-vs-${teamBname}/${stageName}" class="list-group-item">
+									<table class="list-group-item-heading trnmnt-match">
+										<tbody>
+											<tr>
+												<td class="logo l">
+													<asset:image src="${match.teamA.logo}"/>
+												</td>
+												<td class="name">
+													${teamAname}
+												</td>
+												<td class="vs">
+													vs
+												</td>
+												<td class="name">
+													${teamBname}
+												</td>
+												<td class="logo r">
+													<asset:image src="${match.teamB.logo}"/>
+												</td>																																																				
+											</tr>												
+										</tbody>
+									</table>
+									<table class="list-group-item-text trnmnt-match">
+										<tbody>
+											<tr><td><g:formatDate format="dd-MM-yyyy HH:mm" date="${match.date}"/></td></tr>
+											<tr><td>${stageName}</td></tr>
+										</tbody>
+									</table>
 								</a>
 							</g:each>
 						</div>
@@ -110,7 +146,7 @@
 							<g:each var="stadium" in="${tournament.stadiums()}">
 								<li>
 									<a class="trnmnt-panel-info" href="${"/stadium/${stadium.id}/${RequestUtils.forSeoUrl(g.message(code:stadium.name))}"}">
-										<p>
+										<p >
 											<asset:image src="${stadium.photo}" />
 											<span><g:message code="${stadium.name}"/></span>
 										</p>								
