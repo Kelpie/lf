@@ -39,6 +39,9 @@
 	font-weight: bold;
 	font-size: large;
 }
+.trnmnt-match .name table{
+	width: 100%;
+}
 .trnmnt-match .vs {
 	width: 10%;
 }

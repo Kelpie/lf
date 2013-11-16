@@ -21,7 +21,7 @@
 							</h2>
 							<p>
 								<g:if test="${currentStage}">
-									<a href="#" class="btn btn-primary btn-lg" role="button" style="margin-top: 35px;">
+									<a href="${"/tournament/${seoTrnName}/stage/${currentStage.id}/${RequestUtils.forSeoUrl(g.message(code:currentStage.name))}"}" class="btn btn-primary btn-lg" role="button" style="margin-top: 35px;">
 										<g:message code="${currentStage.name}"/>
 									</a>
 								</g:if>
@@ -64,13 +64,19 @@
 													<asset:image src="${match.teamA.logo}"/>
 												</td>
 												<td class="name">
-													${teamAname}
+													<table>
+														<tr><td>${teamAname}</td></tr>
+														<tr><td>${match.scoreA!=null?match.scoreA:''}</td></tr>
+													</table>
 												</td>
 												<td class="vs">
 													vs
 												</td>
 												<td class="name">
-													${teamBname}
+													<table>
+														<tr><td>${teamBname}</td></tr>
+														<tr><td>${match.scoreB!=null?match.scoreB:''}</td></tr>
+													</table>
 												</td>
 												<td class="logo r">
 													<asset:image src="${match.teamB.logo}"/>

@@ -35,17 +35,15 @@ class Tournament {
 		def now = new Date()
 		def c = TournamentStage.createCriteria()
 		def stages = c.list {
-			tournament{
-				idEq(this.id)
-			}			
-			ge("dateFrom", now)
-			lt("dateTo", now)
+			eq('tournament',this)			
+			le("dateFrom", now)
+			gt("dateTo", now)
 			order("rank", "desc")
 		}
 		if (!stages.isEmpty())
-			stages.first()
+			return stages.first()
 
-		return null
+		null
 	}
 
 	def matches(){

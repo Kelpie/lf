@@ -116,8 +116,8 @@ class BootStrap {
                 rank: 1,
                 next: null,                
                 type: TournamentStageType.SINGLE_MATCH,
-                dateFrom: new Date().parse("d/M/yyyy H:m:s", "12/07/2014 00:00:00"),
-                dateTo:   new Date().parse("d/M/yyyy H:m:s", "13/07/2014 00:00:00")
+                dateFrom: new Date() + 7,
+                dateTo:   new Date() + 8
             ).save()  
 
             def semifinals = new TournamentStage(
@@ -126,8 +126,8 @@ class BootStrap {
                 rank: 2,
                 next: finals,                
                 type: TournamentStageType.SINGLE_MATCH,
-                dateFrom: new Date().parse("d/M/yyyy H:m:s", "08/07/2014 00:00:00"),
-                dateTo:   new Date().parse("d/M/yyyy H:m:s", "13/07/2014 00:00:00")
+                dateFrom: new Date() -2,
+                dateTo:   new Date() + 2
             ).save()
 
             def knockout = new TournamentStage(
@@ -136,8 +136,8 @@ class BootStrap {
                 rank: 3,
                 next: semifinals,                
                 type: TournamentStageType.KNOCKOUT,
-                dateFrom: new Date().parse("d/M/yyyy H:m:s", "08/07/2014 00:00:00"),
-                dateTo:   new Date().parse("d/M/yyyy H:m:s", "13/07/2014 00:00:00")
+                dateFrom: new Date() + -3,
+                dateTo:   new Date() + 8
             ).save()
 
             def groupA = new TournamentStage(
@@ -146,8 +146,8 @@ class BootStrap {
                 rank: 4,
                 next: knockout,                
                 type: TournamentStageType.LEAGUE,
-                dateFrom: new Date().parse("d/M/yyyy H:m:s", "12/06/2014 00:00:00"),
-                dateTo:   new Date().parse("d/M/yyyy H:m:s", "23/06/2014 00:00:00")
+                dateFrom: new Date() - 15,
+                dateTo:   new Date() - 4
             ).save()
 
             def groupB = new TournamentStage(
@@ -156,8 +156,8 @@ class BootStrap {
                 rank: 4,
                 next: knockout,
                 type: TournamentStageType.LEAGUE,
-                dateFrom: new Date().parse("d/M/yyyy H:m:s", "13/06/2014 00:00:00"),
-                dateTo:   new Date().parse("d/M/yyyy H:m:s", "23/06/2014 00:00:00")
+                dateFrom: new Date() - 14,
+                dateTo:   new Date() - 3
             ).save()
 
             def groups = new TournamentStage(
@@ -166,8 +166,8 @@ class BootStrap {
                 rank: 5,
                 next: knockout,                
                 type: TournamentStageType.GROUP,
-                dateFrom: new Date().parse("d/M/yyyy H:m:s", "12/06/2014 00:00:00"),
-                dateTo:   new Date().parse("d/M/yyyy H:m:s", "26/06/2014 00:00:00")
+                dateFrom: new Date() - 15,
+                dateTo:   new Date() - 3
             ).save()
 
             new TournamentStageTeam(stage: groupA, team: arg).save()
@@ -195,14 +195,14 @@ class BootStrap {
                 stage: groupA,
                 teamA: arg,
                 teamB: netherlands,
-                scoreA: null,
-                scoreB: null,
+                scoreA: 2,
+                scoreB: 0,
                 stadium: maracana,
                 referee1: ref,
                 referee2: ref,
                 referee3: ref,
                 referee4: ref,
-                date: new Date().parse("d/M/yyyy H:m:s", "12/06/2014 00:00:00")
+                date: new Date() - 14
             ).save()
 
             def ga2match = new Match(
@@ -210,14 +210,14 @@ class BootStrap {
                 stage: groupA,
                 teamA: arg,
                 teamB: usa,
-                scoreA: null,
-                scoreB: null,
+                scoreA: 4,
+                scoreB: 2,
                 stadium: maracana,
                 referee1: ref,
                 referee2: ref,
                 referee3: ref,
                 referee4: ref,
-                date: new Date().parse("d/M/yyyy H:m:s", "13/06/2014 00:00:00")
+                date: new Date() - 12
             ).save()   
 
             def ga3match = new Match(
@@ -225,14 +225,14 @@ class BootStrap {
                 stage: groupA,
                 teamA: arg,
                 teamB: italy,
-                scoreA: null,
-                scoreB: null,
+                scoreA: 1,
+                scoreB: 1,
                 stadium: maracana,
                 referee1: ref,
                 referee2: ref,
                 referee3: ref,
                 referee4: ref,
-                date: new Date().parse("d/M/yyyy H:m:s", "14/06/2014 00:00:00")
+                date: new Date() -10
             ).save()
 
             def ga4match = new Match(
@@ -240,14 +240,14 @@ class BootStrap {
                 stage: groupA,
                 teamA: netherlands,
                 teamB: usa,
-                scoreA: null,
-                scoreB: null,
+                scoreA: 2,
+                scoreB: 3,
                 stadium: maracana,
                 referee1: ref,
                 referee2: ref,
                 referee3: ref,
                 referee4: ref,
-                date: new Date().parse("d/M/yyyy H:m:s", "15/06/2014 00:00:00")
+                date: new Date() - 8
             ).save()
 
             def ga5match = new Match(
@@ -255,14 +255,14 @@ class BootStrap {
                 stage: groupA,
                 teamA: netherlands,
                 teamB: italy,
-                scoreA: null,
-                scoreB: null,
+                scoreA: 1,
+                scoreB: 2,
                 stadium: maracana,
                 referee1: ref,
                 referee2: ref,
                 referee3: ref,
                 referee4: ref,
-                date: new Date().parse("d/M/yyyy H:m:s", "16/06/2014 00:00:00")
+                date: new Date() - 6
             ).save()
 
             def ga6match = new Match(
@@ -270,14 +270,14 @@ class BootStrap {
                 stage: groupA,
                 teamA: usa,
                 teamB: italy,
-                scoreA: null,
-                scoreB: null,
+                scoreA: 1,
+                scoreB: 3,
                 stadium: maracana,
                 referee1: ref,
                 referee2: ref,
                 referee3: ref,
                 referee4: ref,
-                date: new Date().parse("d/M/yyyy H:m:s", "17/06/2014 00:00:00")
+                date: new Date() - 5
             ).save()
 
             //...
@@ -286,14 +286,14 @@ class BootStrap {
                 stage: groupB,
                 teamA: australia,
                 teamB: france,
-                scoreA: null,
-                scoreB: null,
+                scoreA: 0,
+                scoreB: 0,
                 stadium: maracana,
                 referee1: ref,
                 referee2: ref,
                 referee3: ref,
                 referee4: ref,
-                date: new Date().parse("d/M/yyyy H:m:s", "12/06/2014 00:00:00")
+                date: new Date() - 13
             ).save()
 
             def gb2match = new Match(
@@ -301,14 +301,14 @@ class BootStrap {
                 stage: groupB,
                 teamA: australia,
                 teamB: england,
-                scoreA: null,
-                scoreB: null,
+                scoreA: 1,
+                scoreB: 1,
                 stadium: maracana,
                 referee1: ref,
                 referee2: ref,
                 referee3: ref,
                 referee4: ref,
-                date: new Date().parse("d/M/yyyy H:m:s", "13/06/2014 00:00:00")
+                date: new Date() - 12
             ).save()   
 
             def gb3match = new Match(
@@ -316,14 +316,14 @@ class BootStrap {
                 stage: groupB,
                 teamA: australia,
                 teamB: colombia,
-                scoreA: null,
-                scoreB: null,
+                scoreA: 2,
+                scoreB: 1,
                 stadium: maracana,
                 referee1: ref,
                 referee2: ref,
                 referee3: ref,
                 referee4: ref,
-                date: new Date().parse("d/M/yyyy H:m:s", "14/06/2014 00:00:00")
+                date: new Date() - 11
             ).save()
 
             def gb4match = new Match(
@@ -331,14 +331,14 @@ class BootStrap {
                 stage: groupB,
                 teamA: france,
                 teamB: england,
-                scoreA: null,
-                scoreB: null,
+                scoreA: 0,
+                scoreB: 2,
                 stadium: maracana,
                 referee1: ref,
                 referee2: ref,
                 referee3: ref,
                 referee4: ref,
-                date: new Date().parse("d/M/yyyy H:m:s", "15/06/2014 00:00:00")
+                date: new Date() - 9
             ).save()
 
             def gb5match = new Match(
@@ -346,14 +346,14 @@ class BootStrap {
                 stage: groupB,
                 teamA: france,
                 teamB: colombia,
-                scoreA: null,
-                scoreB: null,
+                scoreA: 4,
+                scoreB: 2,
                 stadium: maracana,
                 referee1: ref,
                 referee2: ref,
                 referee3: ref,
                 referee4: ref,
-                date: new Date().parse("d/M/yyyy H:m:s", "16/06/2014 00:00:00")
+                date: new Date() - 7
             ).save()
 
             def gb6match = new Match(
@@ -361,14 +361,14 @@ class BootStrap {
                 stage: groupB,
                 teamA: england,
                 teamB: colombia,
-                scoreA: null,
-                scoreB: null,
+                scoreA: 2,
+                scoreB: 1,
                 stadium: maracana,
                 referee1: ref,
                 referee2: ref,
                 referee3: ref,
                 referee4: ref,
-                date: new Date().parse("d/M/yyyy H:m:s", "17/06/2014 00:00:00")
+                date: new Date() - 5
             ).save()            
 
     	}
