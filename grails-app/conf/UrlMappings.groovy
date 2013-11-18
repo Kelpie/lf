@@ -4,7 +4,11 @@ class UrlMappings {
 
 	static mappings = {
 
-
+        "/tournament/$tournamentName/stage/$id/$name"{
+            controller = "stage"
+            action = "show"            
+        }
+        
         "/tournament/$id/$name" {
             controller = "tournament"
             action = "show"
