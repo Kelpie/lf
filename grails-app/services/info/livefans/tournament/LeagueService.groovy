@@ -17,23 +17,25 @@ class LeagueService {
 		def matches = stage.matches()
 		def teamStats = [:]
 		matches.each{ m ->
-			[
-				[m.teamA, m.teamB, m.scoreA, m.scoreB],
-				[m.teamB, m.teamA, m.scoreB, m.scoreA]
-			].each{ combination ->
-				def team = combination[0]
-				def stats = teamMatchStats(	team, 
-											combination[1], 
-											combination[2], 
-											combination[3])
-				if(teamStats.containsKey(team)){
-					def oldStats = teamStats.get(team)
-					STATS_FIELDS.each{ f->
-						oldStats[f] = oldStats[f] + stats[f]
+			if(m.scoreA != null && m.scoreB != null){
+				[
+					[m.teamA, m.teamB, m.scoreA, m.scoreB],
+					[m.teamB, m.teamA, m.scoreB, m.scoreA]
+				].each{ combination ->
+					def team = combination[0]
+					def stats = teamMatchStats(	team, 
+												combination[1], 
+												combination[2], 
+												combination[3])
+					if(teamStats.containsKey(team)){
+						def oldStats = teamStats.get(team)
+						STATS_FIELDS.each{ f->
+							oldStats[f] = oldStats[f] + stats[f]
+						}
+						teamStats.put(team, oldStats)
+					}else{
+						teamStats.put(team, stats)
 					}
-					teamStats.put(team, oldStats)
-				}else{
-					teamStats.put(team, stats)
 				}
 			}
 		}
