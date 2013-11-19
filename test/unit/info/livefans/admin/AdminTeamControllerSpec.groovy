@@ -1,14 +1,12 @@
-package info.livefans
-
-
+package info.livefans.admin
 
 import grails.test.mixin.*
 import spock.lang.*
 import info.livefans.*
 
-@TestFor(TeamController)
+@TestFor(AdminTeamController)
 @Mock(Team)
-class TeamControllerSpec extends Specification {
+class AdminTeamControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null

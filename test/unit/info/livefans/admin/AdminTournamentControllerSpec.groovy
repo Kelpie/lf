@@ -6,7 +6,7 @@ import grails.test.mixin.*
 import spock.lang.*
 import info.livefans.*
 
-@TestFor(TournamentController)
+@TestFor(AdminTournamentController)
 @Mock(Tournament)
 class AdminTournamentControllerSpec extends Specification {
 

@@ -13,20 +13,19 @@ class LeagueService {
 											'goalDifference',
 											'points']
 
-	def calculateLeagueStats(TournamentStage stage) {
+	def calculateStats(TournamentStage stage) {
 		def matches = stage.matches()
 		def teamStats = [:]
 		matches.each{ m ->
 			if(m.scoreA != null && m.scoreB != null){
 				[
-					[m.teamA, m.teamB, m.scoreA, m.scoreB],
-					[m.teamB, m.teamA, m.scoreB, m.scoreA]
+					[m.teamA, m.scoreA, m.scoreB],
+					[m.teamB, m.scoreB, m.scoreA]
 				].each{ combination ->
 					def team = combination[0]
 					def stats = teamMatchStats(	team, 
 												combination[1], 
-												combination[2], 
-												combination[3])
+												combination[2])
 					if(teamStats.containsKey(team)){
 						def oldStats = teamStats.get(team)
 						STATS_FIELDS.each{ f->
@@ -46,7 +45,7 @@ class LeagueService {
 		return list
 	}
 
-	def teamMatchStats(Team team, Team other, Integer score, Integer otherScore){
+	def teamMatchStats(team, Integer score, Integer otherScore){
 		def stats = [:]
 		stats['team'] = team
 		stats['played'] = 1
