@@ -1,0 +1,37 @@
+.trnmnt-match{
+	width: 100%;
+	text-align: center;
+}
+
+.trnmnt-match .logo {
+	width: 15%;
+}
+.trnmnt-match .logo.l {
+	text-align: left;
+}
+.trnmnt-match .logo.r {
+	text-align: right;
+}
+.trnmnt-match .name {
+	width: 30%;
+	font-weight: bold;
+	font-size: large;
+}
+.trnmnt-match .name table{
+	width: 100%;
+}
+.trnmnt-match .vs {
+	width: 10%;
+}
+.trnmnt-match .logo img{
+	max-height: 25px;
+	max-width: 32px;
+}
+
+.league-table-name{
+	width: 36%;
+}
+
+.league-table-numb{
+	width: 8%;
+}
