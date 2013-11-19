@@ -6,7 +6,7 @@ import grails.test.mixin.*
 import spock.lang.*
 import info.livefans.*
 
-@TestFor(RefereeController)
+@TestFor(AdminRefereeController)
 @Mock(Referee)
 class AdminRefereeControllerSpec extends Specification {
 

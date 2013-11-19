@@ -6,7 +6,7 @@ import grails.test.mixin.*
 import spock.lang.*
 import info.livefans.*
 
-@TestFor(MatchController)
+@TestFor(AdminMatchController)
 @Mock(Match)
 class AdminMatchControllerSpec extends Specification {
 

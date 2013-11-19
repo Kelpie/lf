@@ -19,7 +19,7 @@ class StageController {
 
 		def info = [:]
 		if(stage.type == TournamentStageType.LEAGUE)
-			info.stats = leagueService.calculateLeagueStats(stage)
+			info.stats = leagueService.calculateStats(stage)
 
 		if (stage.type == TournamentStageType.GROUP) {
 			def leagues = stage.tournament.stages().findAll { 
@@ -27,7 +27,7 @@ class StageController {
 			}
 			def groups = [:]
 			leagues.each { l ->
-				def s = leagueService.calculateLeagueStats(l)
+				def s = leagueService.calculateStats(l)
 				groups.put(l,s)
 			}
 			info.groups = groups
