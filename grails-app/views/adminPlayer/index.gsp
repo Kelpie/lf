@@ -39,6 +39,7 @@
 					
 						<g:sortableColumn property="name" title="${message(code: 'player.name.label', default: 'Name')}" />
 					
+						<th><g:message code="playerInstance.id" default="View Details" /></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -47,7 +48,9 @@
 					
 						<td><g:link action="show" id="${playerInstance.id}">${fieldValue(bean: playerInstance, field: "photo")}</g:link></td>
 					
-						<td><g:formatDate date="${playerInstance.birthdate}" /></td>
+						<td>
+							<g:formatDate  format="dd-MM-yyyy HH:mm"  date="${playerInstance.birthdate}" />
+						</td>
 					
 						<td>${fieldValue(bean: playerInstance, field: "birthplace")}</td>
 					
@@ -56,13 +59,23 @@
 						<td>${fieldValue(bean: playerInstance, field: "lastname")}</td>
 					
 						<td>${fieldValue(bean: playerInstance, field: "name")}</td>
+
+						<td>
+							<g:link action="show" id="${playerInstance.id}">
+								<span class="glyphicon glyphicon-eye-open"></span>
+							</g:link>
+						</td>
 					
 					</tr>
 				</g:each>
 				</tbody>
 			</table>
-			<div class="pagination">
-				<g:paginate total="${playerInstanceCount ?: 0}" />
+			<div class="pagination pagination-sm">
+				<ul class="pagination pagination-sm">
+				    <li><a href="#">&laquo;</a></li>
+					<li><g:paginate total="${matchInstanceCount ?: 0}" /></li>
+					<li><a href="#">&raquo;</a></li>	
+				</ul>
 			</div>
 		</div>
 	</body>

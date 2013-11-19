@@ -36,7 +36,7 @@
 						<g:sortableColumn property="location" title="${message(code: 'stadium.location.label', default: 'Location')}" />
 					
 						<g:sortableColumn property="name" title="${message(code: 'stadium.name.label', default: 'Name')}" />
-					
+					<th><g:message code="matchInstance.id" default="View Details" /></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -53,19 +53,25 @@
 					
 						<td>${fieldValue(bean: stadiumInstance, field: "photo")}</td>
 					
-						<!--<td>${fieldValue(bean: stadiumInstance, field: "location")}</td>!-->
 						<td><g:message code="${stadiumInstance.location}" /></td>
 					
-						<!--<td>${fieldValue(bean: stadiumInstance, field: "name")}</td>!-->
 						<td><g:message code="${stadiumInstance.name}" /></td>
 
-
+						<td>
+							<g:link action="show" id="${stadiumInstance.id}">
+								<span class="glyphicon glyphicon-eye-open"></span>
+							</g:link>
+						</td>
 					</tr>
 				</g:each>
 				</tbody>
 			</table>
-			<div class="pagination">
-				<g:paginate total="${stadiumInstanceCount ?: 0}" />
+			<div class="pagination pagination-sm">
+				<ul class="pagination pagination-sm">
+				    <li><a href="#">&laquo;</a></li>
+					<li><g:paginate total="${matchInstanceCount ?: 0}" /></li>
+					<li><a href="#">&raquo;</a></li>	
+				</ul>
 			</div>
 		</div>
 	</body>

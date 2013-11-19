@@ -37,6 +37,7 @@
 					
 						<g:sortableColumn property="name" title="${message(code: 'referee.name.label', default: 'Name')}" />
 					
+						<th><g:message code="matchInstance.id" default="View Details" /></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -45,20 +46,34 @@
 					
 						<td><g:link action="show" id="${refereeInstance.id}">${fieldValue(bean: refereeInstance, field: "photo")}</g:link></td>
 					
-						<td><g:formatDate date="${refereeInstance.birthdate}" /></td>
+						<td>
+							<g:formatDate format="dd-MM-yyyy HH:mm" date="${refereeInstance.birthdate}" />
+						</td>
 					
-						<td>${fieldValue(bean: refereeInstance, field: "birthplace")}</td>
+						<td>
+							<g:message code="${refereeInstance.birthplace}"/>
+						</td>
 					
 						<td>${fieldValue(bean: refereeInstance, field: "lastname")}</td>
 					
 						<td>${fieldValue(bean: refereeInstance, field: "name")}</td>
+
+						<td>
+							<g:link action="show" id="${refereeInstance.id}">
+								<span class="glyphicon glyphicon-eye-open"></span>
+							</g:link>
+						</td>
 					
 					</tr>
 				</g:each>
 				</tbody>
 			</table>
-			<div class="pagination">
-				<g:paginate total="${refereeInstanceCount ?: 0}" />
+			<div class="pagination pagination-sm">
+				<ul class="pagination pagination-sm">
+				    <li><a href="#">&laquo;</a></li>
+					<li><g:paginate total="${matchInstanceCount ?: 0}" /></li>
+					<li><a href="#">&raquo;</a></li>	
+				</ul>
 			</div>
 		</div>
 	</body>

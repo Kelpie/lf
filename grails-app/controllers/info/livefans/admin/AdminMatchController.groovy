@@ -21,6 +21,7 @@ class AdminMatchController {
     }
 
     def create() {
+        println params
         respond new Match(params)
     }
 
@@ -30,7 +31,7 @@ class AdminMatchController {
             notFound()
             return
         }
-
+        println params
         if (matchInstance.hasErrors()) {
             respond matchInstance.errors, view:'create'
             return

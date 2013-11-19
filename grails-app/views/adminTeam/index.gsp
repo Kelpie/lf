@@ -10,6 +10,7 @@
 	<body>
 		<div class="nav" role="navigation">	
 			<div>
+				<br>
 				<a class="btn btn-primary" href="${createLink(uri: '/admin/index')}">
 					<g:message code="default.home.label"/>
 				</a>
@@ -41,7 +42,6 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td>
-								<!--${fieldValue(bean: teamInstance, field: "coach")}!-->
 								<g:message code="${teamInstance.coach}" />
 						</td>
 					
@@ -62,8 +62,12 @@
 				</g:each>
 				</tbody>
 			</table>
-			<div class="pagination">
-				<g:paginate total="${teamInstanceCount ?: 0}" />
+			<div class="pagination pagination-sm">
+				<ul class="pagination pagination-sm">
+				    <li><a href="#">&laquo;</a></li>
+					<li><g:paginate total="${matchInstanceCount ?: 0}" /></li>
+					<li><a href="#">&raquo;</a></li>	
+				</ul>
 			</div>
 		</div>
 	</body>

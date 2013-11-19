@@ -39,7 +39,8 @@
 		<g:message code="match.date.label" default="Date" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="date" precision="day"  class="form-control" value="${matchInstance?.date}"  />
+<!--<g:datePicker name="date" precision="day"  class="form-control" value="${matchInstance?.date}"  />!-->
+	<input type="datetime-local" name="date" precision="day"  class="form-control" value="${matchInstance?.date}">
 </div>
 <br>
 <div class="form-grup fieldcontain ${hasErrors(bean: matchInstance, field: 'referee1', 'error')} required">

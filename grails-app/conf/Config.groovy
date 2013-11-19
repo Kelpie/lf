@@ -11,6 +11,7 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 grails.app.context = "/"
+grails.databinding.dateFormats =  ["yyyy-MM-dd'T'HH:mm"]
 
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 

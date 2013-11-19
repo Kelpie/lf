@@ -36,7 +36,7 @@
 						<g:sortableColumn property="poster" title="${message(code: 'tournament.poster.label', default: 'Poster')}" />
 					
 						<g:sortableColumn property="slogan" title="${message(code: 'tournament.slogan.label', default: 'Slogan')}" />
-					
+						<th><g:message code="tournamentInstance.id" default="View Details" /></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -45,32 +45,37 @@
 					
 						<td><g:link action="show" id="${tournamentInstance.id}">${fieldValue(bean: tournamentInstance, field: "logo")}</g:link></td>
 					
-						<!--<td>${fieldValue(bean: tournamentInstance, field: "name")}</td>!-->
 						<td>
 							<g:message code="${tournamentInstance.name}" />
 						</td>
 					
-						<!--<td>${fieldValue(bean: tournamentInstance, field: "place")}</td>!-->
 						<td>
 							<g:message code="${tournamentInstance.place}" />
 						</td>
 					
-						<!--<td>${fieldValue(bean: tournamentInstance, field: "poster")}</td>!-->
 						<td>
 							<g:message code="${tournamentInstance.poster}" />
 						</td>
 					
-						<!--<td>${fieldValue(bean: tournamentInstance, field: "slogan")}</td>!-->
 						<td>
 							<g:message code="${tournamentInstance.slogan}" />
 						</td>
 					
+						<td>
+							<g:link action="show" id="${tournamentInstance.id}">
+								<span class="glyphicon glyphicon-eye-open"></span>
+							</g:link>
+						</td>
 					</tr>
 				</g:each>
 				</tbody>
 			</table>
-			<div class="pagination">
-				<g:paginate total="${tournamentInstanceCount ?: 0}" />
+			<div class="pagination pagination-sm">
+				<ul class="pagination pagination-sm">
+				    <li><a href="#">&laquo;</a></li>
+					<li><g:paginate total="${matchInstanceCount ?: 0}" /></li>
+					<li><a href="#">&raquo;</a></li>	
+				</ul>
 			</div>
 		</div>
 	</body>

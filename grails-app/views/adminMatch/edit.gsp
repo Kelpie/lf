@@ -9,15 +9,15 @@
 	<body>
 		<div class="nav" role="navigation">
 			<ul>
-				
 			<div>
+				<br>
 				<a class="btn btn-primary" href="${createLink(uri: '/admin/match/index')}">
 					<g:message code="default.home.label"/>
 				</a>
 				<g:link class="btn btn-success" action="index">
 					<g:message code="default.list.label" args="[entityName]" />
 				</g:link>
-				<g:link class="create" action="create">
+				<g:link class="btn btn-info" action="create">
 					<g:message code="default.new.label" args="[entityName]" />
 				</g:link>
 			</div>
@@ -40,7 +40,7 @@
 					<g:render template="form"/>
 				</fieldset>
 				<fieldset class="buttons">
-					<g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+					<g:actionSubmit class="btn btn-danger" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
 				</fieldset>
 			</g:form>
 		</div>

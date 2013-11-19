@@ -63,7 +63,7 @@
 						</td>
 					
 						<td>
-							<g:formatDate date="${matchInstance.date}" />
+							<g:formatDate format="dd-MM-yyyy HH:mm" date="${matchInstance.date}" />
 						</td>
 					
 						<td>
@@ -80,8 +80,12 @@
 				</g:each>
 				</tbody>
 			</table>
-			<div class="pagination">
-				<g:paginate total="${matchInstanceCount ?: 0}" />
+			<div class="pagination pagination-sm">
+				<ul class="pagination pagination-sm">
+				    <li><a href="#">&laquo;</a></li>
+					<li><g:paginate total="${matchInstanceCount ?: 0}" /></li>
+					<li><a href="#">&raquo;</a></li>	
+				</ul>
 			</div>
 		</div>
 	</body>
