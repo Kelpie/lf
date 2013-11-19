@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main">
+		<meta name="layout" content="admin">
 		<g:set var="entityName" value="${message(code: 'match.label', default: 'Match')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
@@ -21,7 +21,7 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<ol class="property-list match">
+			<ol  class="property-list match">
 			
 				<g:if test="${matchInstance?.teamA}">
 				<li class="fieldcontain">

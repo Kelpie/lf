@@ -41,7 +41,7 @@ class AdminMatchController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'matchInstance.label', default: 'Match'), matchInstance.id])
-                redirect matchInstance
+                redirect (uri:"/admin/match/show/${matchInstance.id}")
             }
             '*' { respond matchInstance, [status: CREATED] }
         }

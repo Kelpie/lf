@@ -14,12 +14,12 @@ class UrlMappings {
         /**
         * INTERNAL ADMIN
         **/
-        "/admin/player/$action"(controller: "adminPlayer")
-        "/admin/team/$action"(controller: "adminTeam")
-        "/admin/stadium/$action"(controller: "adminStadium")
-        "/admin/referee/$action"(controller: "adminReferee")
-        "/admin/match/$action"(controller: "adminMatch")
-        "/admin/tournament/$action"(controller: "adminTournament")
+        "/admin/player/$action/$id?"(controller: "adminPlayer")
+        "/admin/team/$action/$id?"(controller: "adminTeam")
+        "/admin/stadium/$action/$id?"(controller: "adminStadium")
+        "/admin/referee/$action/$id?"(controller: "adminReferee")
+        "/admin/match/$action/$id?"(controller: "adminMatch")
+        "/admin/tournament/$action/$id?"(controller: "adminTournament")
         "/admin/$action"(controller: "admin")
         "/"(view:"/index")
         
