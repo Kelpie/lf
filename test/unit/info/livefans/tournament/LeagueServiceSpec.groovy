@@ -12,18 +12,14 @@ class LeagueServiceSpec extends Specification {
 
 	void "Points calculation of teamMatchStats"() {
 		expect:
-			service.teamMatchStats(	'Argentina', scoreA, scoreB) == [	
-				'team':'Argentina',
-				'won': won,
-				'draw': draw,
-				'lost': lost,
-				'goalsFor': goalsFor,
-				'goalsAgainst': goalsAgainst,
-				'goalDifference': goalDifference,
-				'points': points
-			]
-
-
+			def result = service.teamMatchStats('Argentina', scoreA, scoreB)
+			result['won'] == won
+			result['draw'] == draw
+			result['lost'] == lost
+			result['goalsFor'] == goalsFor
+			result['goalsAgainst'] == goalsAgainst
+			result['goalDifference'] == goalDifference
+			result['points'] == points
 
 		where:
 			scoreA	|	scoreB	|	won	|	draw	|	lost|	goalsFor|	goalsAgainst|	goalDifference	|	points
