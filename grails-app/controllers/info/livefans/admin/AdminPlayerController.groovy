@@ -41,7 +41,7 @@ class AdminPlayerController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'playerInstance.label', default: 'Player'), playerInstance.id])
-                redirect playerInstance
+                redirect (uri:"/admin/player/show/${playerInstance.id}")
             }
             '*' { respond playerInstance, [status: CREATED] }
         }
@@ -68,7 +68,7 @@ class AdminPlayerController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Player.label', default: 'Player'), playerInstance.id])
-                redirect playerInstance
+                redirect (uri:"/admin/player/show/${playerInstance.id}")
             }
             '*'{ respond playerInstance, [status: OK] }
         }
@@ -87,7 +87,7 @@ class AdminPlayerController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Player.label', default: 'Player'), playerInstance.id])
-                redirect action:"index", method:"GET"
+                redirect (uri:"/admin/player/index")
             }
             '*'{ render status: NO_CONTENT }
         }
@@ -97,7 +97,7 @@ class AdminPlayerController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'playerInstance.label', default: 'Player'), params.id])
-                redirect action: "index", method: "GET"
+                redirect (uri:"/admin/player/index")
             }
             '*'{ render status: NOT_FOUND }
         }

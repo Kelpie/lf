@@ -5,13 +5,21 @@ import spock.lang.*
 import info.livefans.*
 
 @TestFor(AdminTeamController)
-@Mock(Team)
+@Mock([Team,Player])
 class AdminTeamControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        def dt = new Player( 
+            name: 'I am',
+            lastname: 'Couch',
+            birthdate: new Date().parse("d/M/yyyy H:m:s", "24/06/1987 00:00:00"),
+            heigh: 1.69,
+            birthplace: 'Capital Federal, Buenos Aires, Argentina'
+        ).save()
+        params['name'] = 'team.argentina'
+        params['logo'] = 'country/argentina.png'
+        params['coach'] = dt
     }
 
     void "Test the index action returns the correct model"() {
@@ -51,7 +59,7 @@ class AdminTeamControllerSpec extends Specification {
             controller.save(team)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/team/show/1'
+            response.redirectedUrl == '/admin/team/show/1'
             controller.flash.message != null
             Team.count() == 1
     }
@@ -93,7 +101,7 @@ class AdminTeamControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/team/index'
+            response.redirectedUrl == '/admin/team/index'
             flash.message != null
 
 
@@ -114,7 +122,7 @@ class AdminTeamControllerSpec extends Specification {
             controller.update(team)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/team/show/$team.id"
+            response.redirectedUrl == "/admin/team/show/$team.id"
             flash.message != null
     }
 
@@ -123,7 +131,7 @@ class AdminTeamControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/team/index'
+            response.redirectedUrl == '/admin/team/index'
             flash.message != null
 
         when:"A domain instance is created"
@@ -139,7 +147,7 @@ class AdminTeamControllerSpec extends Specification {
 
         then:"The instance is deleted"
             Team.count() == 0
-            response.redirectedUrl == '/team/index'
+            response.redirectedUrl == '/admin/team/index'
             flash.message != null
     }
 }

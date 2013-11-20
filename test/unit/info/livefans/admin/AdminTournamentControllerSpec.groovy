@@ -12,8 +12,11 @@ class AdminTournamentControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params.name = 'tournament.fifa.world.cup.2014'
+        params.logo = 'tournament/WC2014.logo.png'
+        params.poster = 'asd'
+        params.slogan = 'tournament.fifa.world.cup.2014.slogan'
+        params.place = 'place.brazil'
     }
 
     void "Test the index action returns the correct model"() {
@@ -53,7 +56,7 @@ class AdminTournamentControllerSpec extends Specification {
             controller.save(tournament)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/tournament/show/1'
+            response.redirectedUrl == '/admin/tournament/show/1'
             controller.flash.message != null
             Tournament.count() == 1
     }
@@ -95,7 +98,7 @@ class AdminTournamentControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/tournament/index'
+            response.redirectedUrl == '/admin/tournament/index'
             flash.message != null
 
 
@@ -116,7 +119,7 @@ class AdminTournamentControllerSpec extends Specification {
             controller.update(tournament)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/tournament/show/$tournament.id"
+            response.redirectedUrl == "/admin/tournament/show/$tournament.id"
             flash.message != null
     }
 
@@ -125,7 +128,7 @@ class AdminTournamentControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/tournament/index'
+            response.redirectedUrl == '/admin/tournament/index'
             flash.message != null
 
         when:"A domain instance is created"
@@ -141,7 +144,7 @@ class AdminTournamentControllerSpec extends Specification {
 
         then:"The instance is deleted"
             Tournament.count() == 0
-            response.redirectedUrl == '/tournament/index'
+            response.redirectedUrl == '/admin/tournament/index'
             flash.message != null
     }
 }

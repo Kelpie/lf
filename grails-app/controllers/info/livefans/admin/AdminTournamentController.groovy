@@ -41,7 +41,7 @@ class AdminTournamentController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'tournamentInstance.label', default: 'Tournament'), tournamentInstance.id])
-                redirect tournamentInstance
+                redirect (uri:"/admin/tournament/show/${tournamentInstance.id}")
             }
             '*' { respond tournamentInstance, [status: CREATED] }
         }
@@ -68,7 +68,7 @@ class AdminTournamentController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Tournament.label', default: 'Tournament'), tournamentInstance.id])
-                redirect tournamentInstance
+                redirect (uri:"/admin/tournament/show/${tournamentInstance.id}")
             }
             '*'{ respond tournamentInstance, [status: OK] }
         }
@@ -87,7 +87,7 @@ class AdminTournamentController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Tournament.label', default: 'Tournament'), tournamentInstance.id])
-                redirect action:"index", method:"GET"
+                redirect (uri:"/admin/tournament/index")
             }
             '*'{ render status: NO_CONTENT }
         }
@@ -97,7 +97,7 @@ class AdminTournamentController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'tournamentInstance.label', default: 'Tournament'), params.id])
-                redirect action: "index", method: "GET"
+                redirect (uri:"/admin/tournament/index")
             }
             '*'{ render status: NOT_FOUND }
         }

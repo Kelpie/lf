@@ -41,7 +41,7 @@ class AdminRefereeController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'refereeInstance.label', default: 'Referee'), refereeInstance.id])
-                redirect refereeInstance
+                redirect (uri:"/admin/referee/show/${refereeInstance.id}")
             }
             '*' { respond refereeInstance, [status: CREATED] }
         }
@@ -68,7 +68,7 @@ class AdminRefereeController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Referee.label', default: 'Referee'), refereeInstance.id])
-                redirect refereeInstance
+                redirect (uri:"/admin/referee/show/${refereeInstance.id}")
             }
             '*'{ respond refereeInstance, [status: OK] }
         }
@@ -87,7 +87,7 @@ class AdminRefereeController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Referee.label', default: 'Referee'), refereeInstance.id])
-                redirect action:"index", method:"GET"
+                redirect (uri:"/admin/referee/index")
             }
             '*'{ render status: NO_CONTENT }
         }
@@ -97,7 +97,7 @@ class AdminRefereeController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'refereeInstance.label', default: 'Referee'), params.id])
-                redirect action: "index", method: "GET"
+                redirect (uri:"/admin/referee/index")
             }
             '*'{ render status: NOT_FOUND }
         }

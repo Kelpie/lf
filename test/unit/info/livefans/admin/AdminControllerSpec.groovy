@@ -15,6 +15,7 @@ class AdminControllerSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
+    void "Test showing only not forbidden admins"() {
+    	//TODO
     }
 }

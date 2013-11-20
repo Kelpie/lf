@@ -41,7 +41,7 @@ class AdminStadiumController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'stadiumInstance.label', default: 'Stadium'), stadiumInstance.id])
-                redirect stadiumInstance
+                redirect (uri:"/admin/stadium/show/${stadiumInstance.id}")
             }
             '*' { respond stadiumInstance, [status: CREATED] }
         }
@@ -68,7 +68,7 @@ class AdminStadiumController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Stadium.label', default: 'Stadium'), stadiumInstance.id])
-                redirect stadiumInstance
+                redirect (uri:"/admin/stadium/show/${stadiumInstance.id}")
             }
             '*'{ respond stadiumInstance, [status: OK] }
         }
@@ -87,7 +87,7 @@ class AdminStadiumController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Stadium.label', default: 'Stadium'), stadiumInstance.id])
-                redirect action:"index", method:"GET"
+                redirect (uri:"/admin/stadium/index")
             }
             '*'{ render status: NO_CONTENT }
         }
@@ -97,7 +97,7 @@ class AdminStadiumController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'stadiumInstance.label', default: 'Stadium'), params.id])
-                redirect action: "index", method: "GET"
+                redirect (uri:"/admin/stadium/index")
             }
             '*'{ render status: NOT_FOUND }
         }

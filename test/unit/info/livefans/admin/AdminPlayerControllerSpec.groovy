@@ -12,8 +12,11 @@ class AdminPlayerControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params['name'] = 'Lionel Andres'
+        params['lastname'] = 'Messi'
+        params['birthdate'] = new Date().parse("d/M/yyyy H:m:s", "24/06/1987 00:00:00")
+        params['heigh'] = 1.69
+        params['birthplace'] = 'Rosario, Santa Fe, Argentina'
     }
 
     void "Test the index action returns the correct model"() {
@@ -53,7 +56,7 @@ class AdminPlayerControllerSpec extends Specification {
             controller.save(player)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/player/show/1'
+            response.redirectedUrl == '/admin/player/show/1'
             controller.flash.message != null
             Player.count() == 1
     }
@@ -95,7 +98,7 @@ class AdminPlayerControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/player/index'
+            response.redirectedUrl == '/admin/player/index'
             flash.message != null
 
 
@@ -116,7 +119,7 @@ class AdminPlayerControllerSpec extends Specification {
             controller.update(player)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/player/show/$player.id"
+            response.redirectedUrl == "/admin/player/show/$player.id"
             flash.message != null
     }
 
@@ -125,7 +128,7 @@ class AdminPlayerControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/player/index'
+            response.redirectedUrl == '/admin/player/index'
             flash.message != null
 
         when:"A domain instance is created"
@@ -141,7 +144,7 @@ class AdminPlayerControllerSpec extends Specification {
 
         then:"The instance is deleted"
             Player.count() == 0
-            response.redirectedUrl == '/player/index'
+            response.redirectedUrl == '/admin/player/index'
             flash.message != null
     }
 }

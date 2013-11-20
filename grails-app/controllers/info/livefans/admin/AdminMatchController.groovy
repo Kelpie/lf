@@ -69,7 +69,7 @@ class AdminMatchController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Match.label', default: 'Match'), matchInstance.id])
-                redirect matchInstance
+                redirect (uri:"/admin/match/show/${matchInstance.id}")
             }
             '*'{ respond matchInstance, [status: OK] }
         }
@@ -88,7 +88,7 @@ class AdminMatchController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Match.label', default: 'Match'), matchInstance.id])
-                redirect action:"index", method:"GET"
+                redirect (uri:"/admin/match/index")
             }
             '*'{ render status: NO_CONTENT }
         }
@@ -98,7 +98,7 @@ class AdminMatchController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'matchInstance.label', default: 'Match'), params.id])
-                redirect action: "index", method: "GET"
+                redirect (uri:"/admin/match/index")
             }
             '*'{ render status: NOT_FOUND }
         }

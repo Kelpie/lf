@@ -12,8 +12,10 @@ class AdminRefereeControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params['name'] = 'William Selorm'
+        params['lastname'] = 'Agbovi'
+        params['birthdate'] = new Date().parse("d/M/yyyy H:m:s", "01/01/1972 00:00:00")
+        params['birthplace'] = 'place.ghana'
     }
 
     void "Test the index action returns the correct model"() {
@@ -53,7 +55,7 @@ class AdminRefereeControllerSpec extends Specification {
             controller.save(referee)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/referee/show/1'
+            response.redirectedUrl == '/admin/referee/show/1'
             controller.flash.message != null
             Referee.count() == 1
     }
@@ -95,7 +97,7 @@ class AdminRefereeControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/referee/index'
+            response.redirectedUrl == '/admin/referee/index'
             flash.message != null
 
 
@@ -116,7 +118,7 @@ class AdminRefereeControllerSpec extends Specification {
             controller.update(referee)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/referee/show/$referee.id"
+            response.redirectedUrl == "/admin/referee/show/$referee.id"
             flash.message != null
     }
 
@@ -125,7 +127,7 @@ class AdminRefereeControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/referee/index'
+            response.redirectedUrl == '/admin/referee/index'
             flash.message != null
 
         when:"A domain instance is created"
@@ -141,7 +143,7 @@ class AdminRefereeControllerSpec extends Specification {
 
         then:"The instance is deleted"
             Referee.count() == 0
-            response.redirectedUrl == '/referee/index'
+            response.redirectedUrl == '/admin/referee/index'
             flash.message != null
     }
 }

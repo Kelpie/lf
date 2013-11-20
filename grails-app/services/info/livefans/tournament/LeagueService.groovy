@@ -6,7 +6,7 @@ import grails.transaction.Transactional
 @Transactional
 class LeagueService {
 
-	private static final STATS_FIELDS = [	'played',
+	public static final STATS_FIELDS = [	'played',
 											'won','draw','lost',
 											'goalsFor',
 											'goalsAgainst',
@@ -15,6 +15,10 @@ class LeagueService {
 
 	def calculateStats(TournamentStage stage) {
 		def matches = stage.matches()
+		return calculateStats(matches)
+	}
+
+	def calculateStats(List matches) {
 		def teamStats = [:]
 		matches.each{ m ->
 			if(m.scoreA != null && m.scoreB != null){

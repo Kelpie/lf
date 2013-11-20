@@ -12,8 +12,11 @@ class AdminStadiumControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params['name'] = 'place.maracana.stadium'
+        params['location'] = 'place.rio.de.janeiro'
+        params['latitude'] = -22.912167
+        params['longitude'] = -43.230164
+        params['photo'] = 'stadium/maracana.jpeg'
     }
 
     void "Test the index action returns the correct model"() {
@@ -53,7 +56,7 @@ class AdminStadiumControllerSpec extends Specification {
             controller.save(stadium)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/stadium/show/1'
+            response.redirectedUrl == '/admin/stadium/show/1'
             controller.flash.message != null
             Stadium.count() == 1
     }
@@ -95,7 +98,7 @@ class AdminStadiumControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/stadium/index'
+            response.redirectedUrl == '/admin/stadium/index'
             flash.message != null
 
 
@@ -116,7 +119,7 @@ class AdminStadiumControllerSpec extends Specification {
             controller.update(stadium)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/stadium/show/$stadium.id"
+            response.redirectedUrl == "/admin/stadium/show/$stadium.id"
             flash.message != null
     }
 
@@ -125,7 +128,7 @@ class AdminStadiumControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/stadium/index'
+            response.redirectedUrl == '/admin/stadium/index'
             flash.message != null
 
         when:"A domain instance is created"
@@ -141,7 +144,7 @@ class AdminStadiumControllerSpec extends Specification {
 
         then:"The instance is deleted"
             Stadium.count() == 0
-            response.redirectedUrl == '/stadium/index'
+            response.redirectedUrl == '/admin/stadium/index'
             flash.message != null
     }
 }

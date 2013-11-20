@@ -1,19 +1,66 @@
 package info.livefans.admin
 
-
-
 import grails.test.mixin.*
 import spock.lang.*
 import info.livefans.*
+import info.livefans.tournament.*
 
 @TestFor(AdminMatchController)
-@Mock(Match)
+@Mock([Match,Referee,Stadium,Tournament,TournamentStage])
 class AdminMatchControllerSpec extends Specification {
 
+    def setup() {
+
+    }
+
+
     def populateValidParams(params) {
+        def ref = new Referee( 
+            name:'William Selorm',
+            lastname:'Agbovi',
+            birthdate: new Date().parse("d/M/yyyy H:m:s", "01/01/1972 00:00:00"),
+            birthplace: 'place.ghana',
+        ).save()
+
+        def maracana = new Stadium( 
+            name: 'place.maracana.stadium',
+            location: 'place.rio.de.janeiro',
+            latitude: -22.912167,
+            longitude: -43.230164,
+            photo: 'stadium/maracana.jpeg'
+        ).save()
+
+        def brazil2014 = new Tournament( 
+            name:'tournament.fifa.world.cup.2014', 
+            logo:'tournament/WC2014.logo.png',
+            poster:'asd',
+            slogan:'tournament.fifa.world.cup.2014.slogan',
+            place: 'place.brazil'
+        ).save()
+
+        def groups = new TournamentStage(
+            tournament: brazil2014,
+            name: 'tournament.stage.group',
+            rank: 5,
+            next: null,                
+            type: TournamentStageType.GROUP,
+            dateFrom: new Date() - 15,
+            dateTo:   new Date() - 3
+        ).save()
+
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params.tournament = brazil2014
+        params.stage = groups
+        params.teamA = null
+        params.teamB = null
+        params.scoreA = null
+        params.scoreB = null
+        params.stadium = maracana
+        params.referee1 = ref
+        params.referee2 = ref
+        params.referee3 = ref
+        params.referee4 = ref
+        params.date = new Date() - 14
     }
 
     void "Test the index action returns the correct model"() {
@@ -53,7 +100,7 @@ class AdminMatchControllerSpec extends Specification {
             controller.save(match)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/match/show/1'
+            response.redirectedUrl == '/admin/match/show/1'
             controller.flash.message != null
             Match.count() == 1
     }
@@ -95,7 +142,7 @@ class AdminMatchControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/match/index'
+            response.redirectedUrl == '/admin/match/index'
             flash.message != null
 
 
@@ -116,7 +163,7 @@ class AdminMatchControllerSpec extends Specification {
             controller.update(match)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/match/show/$match.id"
+            response.redirectedUrl == "/admin/match/show/$match.id"
             flash.message != null
     }
 
@@ -125,7 +172,7 @@ class AdminMatchControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/match/index'
+            response.redirectedUrl == '/admin/match/index'
             flash.message != null
 
         when:"A domain instance is created"
@@ -141,7 +188,7 @@ class AdminMatchControllerSpec extends Specification {
 
         then:"The instance is deleted"
             Match.count() == 0
-            response.redirectedUrl == '/match/index'
+            response.redirectedUrl == '/admin/match/index'
             flash.message != null
     }
 }

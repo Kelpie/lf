@@ -25,7 +25,7 @@ class TournamentControllerSpec extends Specification {
     	   controller.index()
 
         then: "It should redirect to show the wold cup 2014"
-            response.redirectedUrl == "/tournament/show/${brazil2014.id}"
+            response.redirectedUrl.contains("/tournament/${brazil2014.id}")
     }
 
     void "show a tournament"(){

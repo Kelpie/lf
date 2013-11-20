@@ -39,7 +39,7 @@ class AdminTeamController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'teamInstance.label', default: 'Team'), teamInstance.id])
-                redirect teamInstance
+                redirect (uri:"/admin/team/show/${teamInstance.id}")
             }
             '*' { respond teamInstance, [status: CREATED] }
         }
@@ -66,7 +66,7 @@ class AdminTeamController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Team.label', default: 'Team'), teamInstance.id])
-                redirect teamInstance
+                redirect (uri:"/admin/team/show/${teamInstance.id}")
             }
             '*'{ respond teamInstance, [status: OK] }
         }
@@ -85,7 +85,7 @@ class AdminTeamController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Team.label', default: 'Team'), teamInstance.id])
-                redirect action:"index", method:"GET"
+                redirect (uri:"/admin/team/index")
             }
             '*'{ render status: NO_CONTENT }
         }
@@ -95,7 +95,7 @@ class AdminTeamController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'teamInstance.label', default: 'Team'), params.id])
-                redirect action: "index", method: "GET"
+                redirect (uri:"/admin/team/index")
             }
             '*'{ render status: NOT_FOUND }
         }
