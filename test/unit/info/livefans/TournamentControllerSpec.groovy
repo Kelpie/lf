@@ -14,12 +14,12 @@ class TournamentControllerSpec extends Specification {
     void "Tournament home"() {
         given:
             def brazil2014 = new Tournament( 
-                name:'2014 FIFA World Cup', 
-                logo:'asd',
+                name:'tournament.fifa.world.cup.2014', 
+                logo:'tournament/WC2014.logo.png',
                 poster:'asd',
-                slogan:'All in One Rhythm',
-                place: 'Brazil'
-            ).save(flush: true)  
+                slogan:'tournament.fifa.world.cup.2014.slogan',
+                place: 'place.brazil'
+            ).save()
 
         when: "The index action is executed"
     	   controller.index()
@@ -31,12 +31,12 @@ class TournamentControllerSpec extends Specification {
     void "show a tournament"(){
         given:
             def brazil2014 = new Tournament( 
-                name:'2014 FIFA World Cup', 
-                logo:'asd',
+                name:'tournament.fifa.world.cup.2014', 
+                logo:'tournament/WC2014.logo.png',
                 poster:'asd',
-                slogan:'All in One Rhythm',
-                place: 'Brazil'
-            ).save(flush: true)  
+                slogan:'tournament.fifa.world.cup.2014.slogan',
+                place: 'place.brazil'
+            ).save()
 
         when: "The show action is executed"
             def model = controller.show(brazil2014.id)
