@@ -34,6 +34,8 @@ class MatchPreCondition {
 
 	static mapping = {
 		match index:'PreCondition_Match_Idx'
+		teamAFromMatch index:'PreCondition_TeamsFromMatch_Idx'
+		teamBFromMatch index:'PreCondition_TeamsFromMatch_Idx'
 	}
 }
 
