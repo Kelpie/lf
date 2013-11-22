@@ -2,12 +2,14 @@ package info.livefans.tournament
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
+import info.livefans.match.*
+import info.livefans.*
 
 /**
  * See the API for {@link grails.test.mixin.services.ServiceUnitTestMixin} for usage instructions
  */
 @TestFor(KnockoutService)
-@Mock([Match,Referee,Stadium,Tournament,TournamentStage,Team,MatchPreCondition])
+@Mock([Match,Referee,Stadium,Tournament,TournamentStage,Team,MatchPreCondition,Player])
 class KnockoutServiceSpec extends Specification {
 
     def setup() {
@@ -74,13 +76,6 @@ class KnockoutServiceSpec extends Specification {
                 coach : dt,
             ).save()
 
-            def maracana = new Stadium( 
-                name: 'place.maracana.stadium',
-                location: 'place.rio.de.janeiro',
-                latitude: -22.912167,
-                longitude: -43.230164,
-                photo: 'stadium/maracana.jpeg'
-            ).save()
             def maracana = new Stadium( 
                 name: 'place.maracana.stadium',
                 location: 'place.rio.de.janeiro',
@@ -240,7 +235,7 @@ class KnockoutServiceSpec extends Specification {
                 referee4: ref,
                 date: new Date() + 7
             ).save()
-            def 3erd = new Match(
+            def third = new Match(
                 tournament: brazil2014,
                 stage: finals,
                 teamA: null,
@@ -276,7 +271,7 @@ class KnockoutServiceSpec extends Specification {
                 teamBFromMatchWinner: true
             ).save()
             new MatchPreCondition(
-                match: 3erd,
+                match: third,
                 teamAFromMatch: sf1,
                 teamAFromMatchWinner: false,
                 teamBFromMatch: sf2,
@@ -284,21 +279,21 @@ class KnockoutServiceSpec extends Specification {
             ).save()
 
 		when: "knockout brackets are asked"
-            def result = services.calculateBrackets(knockout)
+            def result = service.calculateBrackets(knockout)
 
 		then: "the result should be a list of list, each level will be the round matches ordered"
             result.size() == 3 //cuartos, semis y final
             result[0].size() == 4 //4 partidos
-            result[0][0].matchId = qf1.id
-            result[0][1].matchId = qf2.id
-            result[0][2].matchId = qf3.id
-            result[0][3].matchId = qf4.id
+            result[0][0].matchId == qf1.id
+            result[0][1].matchId == qf2.id
+            result[0][2].matchId == qf3.id
+            result[0][3].matchId == qf4.id
             result[1].size() == 2 //2 partidos de semis
-            result[1][0].matchId = sf1.id
-            result[1][1].matchId = sf2.id
+            result[1][0].matchId == sf1.id
+            result[1][1].matchId == sf2.id
             result[2].size() == 2 //final y 3er puesto
-            result[2][0].matchId = f.id
-            result[2][1].matchId = 3erd.id
+            result[2][0].matchId == f.id
+            result[2][1].matchId == third.id
     }	
 
     void "Brackets should be show from the first round always"() {
@@ -359,13 +354,6 @@ class KnockoutServiceSpec extends Specification {
                 coach : dt,
             ).save()
 
-            def maracana = new Stadium( 
-                name: 'place.maracana.stadium',
-                location: 'place.rio.de.janeiro',
-                latitude: -22.912167,
-                longitude: -43.230164,
-                photo: 'stadium/maracana.jpeg'
-            ).save()
             def maracana = new Stadium( 
                 name: 'place.maracana.stadium',
                 location: 'place.rio.de.janeiro',
@@ -525,7 +513,7 @@ class KnockoutServiceSpec extends Specification {
                 referee4: ref,
                 date: new Date() + 7
             ).save()
-            def 3erd = new Match(
+            def third = new Match(
                 tournament: brazil2014,
                 stage: finals,
                 teamA: null,
@@ -561,24 +549,24 @@ class KnockoutServiceSpec extends Specification {
                 teamBFromMatchWinner: true
             ).save()
             new MatchPreCondition(
-                match: 3erd,
+                match: third,
                 teamAFromMatch: sf1,
                 teamAFromMatchWinner: false,
                 teamBFromMatch: sf2,
                 teamBFromMatchWinner: false
             ).save()
 		when: "knockout brackets are asked"
-            def result = services.calculateBrackets(finals)
+            def result = service.calculateBrackets(finals)
 
 		then: "redirect to the main knockout stage"
             result.size() > 1 //no solo la final
 
 		when: "knockout one stage is asked"
-            def result = services.calculateBrackets(semifinals)
+            result = service.calculateBrackets(semifinals)
 
 		then: "should return a selected flag"
             result[1].size() == 2 //2 partidos de semis
-            result[1][0].selected = true
-            result[1][1].selected = true
+            result[1][0].selected == true
+            result[1][1].selected == true
     }    
 }
