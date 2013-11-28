@@ -19,6 +19,12 @@ class Tournament {
 	static mapping = {
 	}
 
+	def knockout(){
+		stages().find {
+			it.type == TournamentStageType.KNOCKOUT
+		}
+	}
+
 	def teams(){
 		TournamentStageTeam.findAllByStage(stages().first()).collect{ it.team }
 	}
