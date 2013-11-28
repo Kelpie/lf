@@ -21,7 +21,7 @@ class StageController {
 		def info = [:]
 
 		if(stage.type in TournamentStageType.knockoutStages())
-			info.brackets = leagueService.calculateBrackets(stage)
+			info.brackets = knockoutService.calculateBrackets(stage)
 		
 		if(stage.type == TournamentStageType.LEAGUE)
 			info.stats = leagueService.calculateStats(stage)
