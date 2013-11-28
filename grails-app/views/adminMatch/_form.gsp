@@ -7,7 +7,7 @@
 		<g:message code="match.teamA.label" default="Team A" />
 		
 	</label>
-	<g:select  id="teamA" name="teamA.id" from="${info.livefans.Team.list()}" optionKey="id" value="${matchInstance?.teamA?.id}" class="form-control many-to-one" noSelection="['null': '']"/>
+	<g:select  id="teamA" name="teamA.id" from="${info.livefans.Team.list()}" optionKey="id" optionValue="${{g.message(code:it.name)}}"  value="${matchInstance?.teamA?.id}" class="form-control many-to-one" noSelection="['null': '']"/>
 </div>
 <br>
 <div class="form-grup fieldcontain ${hasErrors(bean: matchInstance, field: 'teamB', 'error')} ">
@@ -15,7 +15,7 @@
 		<g:message code="match.teamB.label" default="Team B" />
 		
 	</label>
-	<g:select id="teamB" name="teamB.id" from="${info.livefans.Team.list()}" optionKey="id" value="${matchInstance?.teamB?.id}" class="form-control many-to-one" noSelection="['null': '']"/>
+	<g:select id="teamB" name="teamB.id" from="${info.livefans.Team.list()}" optionKey="id" value="${matchInstance?.teamB?.id}" optionValue="${{g.message(code:it.name)}}" class="form-control many-to-one" noSelection="['null': '']"/>
 </div>
 <br>
 <div class="form-grup fieldcontain ${hasErrors(bean: matchInstance, field: 'scoreA', 'error')} ">
@@ -48,7 +48,7 @@
 		<g:message code="match.referee1.label" default="Referee1" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="referee1" name="referee1.id" from="${info.livefans.Referee.list()}" optionKey="id" required="" value="${matchInstance?.referee1?.id}" class="form-control many-to-one"/>
+	<g:select id="referee1" name="referee1.id" from="${info.livefans.Referee.list()}" optionKey="id" required="" value="${matchInstance?.referee1?.id}" optionValue="${{g.message(code:it.name)}}" class="form-control many-to-one"/>
 </div>
 <br>
 <div class="form-grup fieldcontain ${hasErrors(bean: matchInstance, field: 'referee2', 'error')} required">
@@ -56,7 +56,7 @@
 		<g:message code="match.referee2.label" default="Referee2" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="referee2" name="referee2.id" from="${info.livefans.Referee.list()}" optionKey="id" required="" value="${matchInstance?.referee2?.id}" class="form-control many-to-one"/>
+	<g:select id="referee2" name="referee2.id" from="${info.livefans.Referee.list()}" optionKey="id" required="" value="${matchInstance?.referee2?.id}" optionValue="${{g.message(code:it.name)}}" class="form-control many-to-one"/>
 </div>
 <br>
 <div class="form-grup fieldcontain ${hasErrors(bean: matchInstance, field: 'referee3', 'error')} required">
@@ -64,7 +64,7 @@
 		<g:message code="match.referee3.label" default="Referee3" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="referee3" name="referee3.id" from="${info.livefans.Referee.list()}" optionKey="id" required="" value="${matchInstance?.referee3?.id}" class="form-control many-to-one"/>
+	<g:select id="referee3" name="referee3.id" from="${info.livefans.Referee.list()}" optionKey="id" required="" value="${matchInstance?.referee3?.id}" optionValue="${{g.message(code:it.name)}}" class="form-control many-to-one"/>
 </div>
 <br>
 <div class="form-grup fieldcontain ${hasErrors(bean: matchInstance, field: 'referee4', 'error')} required">
@@ -72,7 +72,7 @@
 		<g:message code="match.referee4.label" default="Referee4" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="referee4" name="referee4.id" from="${info.livefans.Referee.list()}" optionKey="id" required="" value="${matchInstance?.referee4?.id}" class="form-control many-to-one"/>
+	<g:select id="referee4" name="referee4.id" from="${info.livefans.Referee.list()}" optionKey="id" required="" value="${matchInstance?.referee4?.id}" optionValue="${{g.message(code:it.name)}}" class="form-control many-to-one"/>
 </div>
 <br>
 <div class="form-grup fieldcontain ${hasErrors(bean: matchInstance, field: 'stadium', 'error')} required">
@@ -80,7 +80,7 @@
 		<g:message code="match.stadium.label" default="Stadium" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="stadium" name="stadium.id" from="${info.livefans.Stadium.list()}" optionKey="id" required="" value="${matchInstance?.stadium?.id}" class="form-control many-to-one"/>
+	<g:select id="stadium" name="stadium.id" from="${info.livefans.Stadium.list()}" optionKey="id" required="" value="${matchInstance?.stadium?.id}" optionValue="${{g.message(code:it.name)}}" class="form-control many-to-one"/>
 </div>
 <br>
 <div class="form-grup fieldcontain ${hasErrors(bean: matchInstance, field: 'stage', 'error')} required">
@@ -88,7 +88,7 @@
 		<g:message code="match.stage.label" default="Stage" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="stage" name="stage.id" from="${info.livefans.tournament.TournamentStage.list()}" optionKey="id" required="" value="${matchInstance?.stage?.id}" class="form-control many-to-one"/>
+	<g:select id="stage" name="stage.id" from="${info.livefans.tournament.TournamentStage.list()}" optionKey="id" required="" value="${matchInstance?.stage?.id}" optionValue="${{g.message(code:it.name)}}" class="form-control many-to-one"/>
 </div>
 <br>
 <div class="form-grup fieldcontain ${hasErrors(bean: matchInstance, field: 'tournament', 'error')} required">
@@ -96,5 +96,5 @@
 		<g:message code="match.tournament.label" default="Tournament" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="tournament" name="tournament.id" from="${info.livefans.Tournament.list()}" optionKey="id" required="" value="${matchInstance?.tournament?.id}" class="form-control many-to-one"/>
+	<g:select id="tournament" name="tournament.id" from="${info.livefans.Tournament.list()}" optionKey="id" required="" value="${matchInstance?.tournament?.id}" optionValue="${{g.message(code:it.name)}}" class="form-control many-to-one"/>
 </div>

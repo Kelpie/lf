@@ -7,7 +7,7 @@
 		<g:message code="team.coach.label" default="Coach" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="coach" name="coach.id" from="${info.livefans.Player.list()}" optionKey="id" required="" value="${teamInstance?.coach?.id}" class="form-control many-to-one"/>
+	<g:select id="coach" name="coach.id" from="${info.livefans.Player.list()}" optionKey="id" required="" value="${teamInstance?.coach?.id}" optionValue="${{g.message(code:it.name)}}" class="form-control many-to-one"/>
 </div>
 <br>
 <div class="form-grup fieldcontain ${hasErrors(bean: teamInstance, field: 'logo', 'error')} ">
@@ -21,8 +21,7 @@
 <div class="form-grup fieldcontain ${hasErrors(bean: teamInstance, field: 'name', 'error')} ">
 	<label for="name">
 		<g:message code="team.name.label" default="Name" />
-		
 	</label>
-	<g:textField name="name" class="form-control" value="${teamInstance?.name}"/>
+	<g:textField name="name" class="form-control" value="${teamInstance?.name}"  />
 </div>
 <br>

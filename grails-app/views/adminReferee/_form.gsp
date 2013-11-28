@@ -29,7 +29,7 @@
 		<g:message code="referee.lastname.label" default="Lastname" />
 		
 	</label>
-	<g:textField name="lastname" class="form-control" value="${refereeInstance?.lastname}"/>
+	<g:textField name="lastname" class="form-control" value="${refereeInstance?.lastname}" />
 </div>
 <br>
 <div class="form-grup fieldcontain ${hasErrors(bean: refereeInstance, field: 'name', 'error')} ">

@@ -25,5 +25,8 @@
 		<a href="/admin/tournament/index"  class="btn btn-primary" tabindex="-1">
 			<g:message code="default.link.skip.label" default="Tournament"/>
 		</a>
+		<a href="/admin/tournamentStage/index"  class="btn btn-success" tabindex="-1">
+			<g:message code="default.link.skip.label" default="Tournament Stage"/>
+		</a>
 	</body>
 </html>
