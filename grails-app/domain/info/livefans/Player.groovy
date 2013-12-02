@@ -18,4 +18,10 @@ class Player {
 
 	static mapping = {
 	}
+
+	@Override 
+	public String toString() {
+		return "${lastname.capitalize()}, ${name}".toString() 
+	}
+
 }

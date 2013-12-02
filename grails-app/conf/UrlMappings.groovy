@@ -14,6 +14,10 @@ class UrlMappings {
             action = "show"
         }
 
+        "/player/$id/$name" {
+            controller = "player"
+            action = "show"
+        }
 
         /**
         * INTERNAL ADMIN
