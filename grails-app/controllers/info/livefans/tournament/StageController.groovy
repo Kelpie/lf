@@ -9,6 +9,7 @@ import static org.springframework.http.HttpStatus.*
 class StageController {
 
 	def leagueService
+	def knockoutService
 
     def index() {
 
@@ -18,6 +19,10 @@ class StageController {
 		TournamentStage stage = RequestUtils.secureDomainGet(TournamentStage, id)
 
 		def info = [:]
+
+		if(stage.type in TournamentStageType.knockoutStages())
+			info.brackets = knockoutService.calculateBrackets(stage)
+		
 		if(stage.type == TournamentStageType.LEAGUE)
 			info.stats = leagueService.calculateStats(stage)
 

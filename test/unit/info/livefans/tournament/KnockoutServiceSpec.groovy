@@ -118,7 +118,7 @@ class KnockoutServiceSpec extends Specification {
             ).save()
             def quarterfinal = new TournamentStage(
                 tournament: brazil2014,
-                name: 'tournament.stage.semifinals',
+                name: 'tournament.stage.quarterfinals',
                 rank: 3,
                 next: semifinals,                
                 type: TournamentStageType.SINGLE_MATCH,
@@ -284,16 +284,16 @@ class KnockoutServiceSpec extends Specification {
 		then: "the result should be a list of list, each level will be the round matches ordered"
             result.size() == 3 //cuartos, semis y final
             result[0].size() == 4 //4 partidos
-            result[0][0].matchId == qf1.id
-            result[0][1].matchId == qf2.id
-            result[0][2].matchId == qf3.id
-            result[0][3].matchId == qf4.id
+            result[0][0]['match'].id == qf1.id
+            result[0][1]['match'].id == qf2.id
+            result[0][2]['match'].id == qf3.id
+            result[0][3]['match'].id == qf4.id
             result[1].size() == 2 //2 partidos de semis
-            result[1][0].matchId == sf1.id
-            result[1][1].matchId == sf2.id
+            result[1][0]['match'].id == sf1.id
+            result[1][1]['match'].id == sf2.id
             result[2].size() == 2 //final y 3er puesto
-            result[2][0].matchId == f.id
-            result[2][1].matchId == third.id
+            result[2][0]['match'].id == f.id
+            result[2][1]['match'].id == third.id
     }	
 
     void "Brackets should be show from the first round always"() {
@@ -396,7 +396,7 @@ class KnockoutServiceSpec extends Specification {
             ).save()
             def quarterfinal = new TournamentStage(
                 tournament: brazil2014,
-                name: 'tournament.stage.semifinals',
+                name: 'tournament.stage.quarterfinals',
                 rank: 3,
                 next: semifinals,                
                 type: TournamentStageType.SINGLE_MATCH,

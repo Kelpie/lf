@@ -16,5 +16,10 @@ public enum TournamentStageType {
 	SINGLE_MATCH,
 
 	AWAY_RETURN_MATCH
+
+
+	public static List<TournamentStageType> knockoutStages(){
+		[KNOCKOUT, SINGLE_MATCH, AWAY_RETURN_MATCH]
+	}
 	
 }

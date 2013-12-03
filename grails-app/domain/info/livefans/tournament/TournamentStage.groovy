@@ -25,6 +25,17 @@ class TournamentStage {
 		tournament  fetch:'join', index:'Stage_Tournament_Idx'
 	}
 
+	def nextStages(){
+		def path = []
+		def lastRank = this.rank
+		this.tournament.stages().each{ ts->
+			if(ts.rank < lastRank){
+				lastRank = ts.rank
+				path << ts
+			}
+		}
+		path
+	}
 
 	def previusStages(){
 		def path = []
