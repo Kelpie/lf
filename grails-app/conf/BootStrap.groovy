@@ -1,5 +1,6 @@
 import grails.util.Environment
 import info.livefans.*
+import info.livefans.match.*
 import info.livefans.tournament.*
 
 class BootStrap {
@@ -114,7 +115,7 @@ class BootStrap {
                 tournament: brazil2014,
                 name: 'tournament.stage.finals',
                 rank: 1,
-                next: null,                
+                next: null,
                 type: TournamentStageType.SINGLE_MATCH,
                 dateFrom: new Date() + 7,
                 dateTo:   new Date() + 8
@@ -369,8 +370,97 @@ class BootStrap {
                 referee3: ref,
                 referee4: ref,
                 date: new Date() - 5
+            ).save()
+
+            def sf1 = new Match(
+                tournament: brazil2014,
+                stage: semifinals,
+                teamA: arg,
+                teamB: australia,
+                scoreA: 6,
+                scoreB: 1,
+                stadium: maracana,
+                referee1: ref,
+                referee2: ref,
+                referee3: ref,
+                referee4: ref,
+                date: new Date() -1
+            ).save()
+
+            def sf2 = new Match(
+                tournament: brazil2014,
+                stage: semifinals,
+                teamA: england,
+                teamB: italy,
+                scoreA: null,
+                scoreB: null,
+                stadium: maracana,
+                referee1: ref,
+                referee2: ref,
+                referee3: ref,
+                referee4: ref,
+                date: new Date() + 1
+            ).save()   
+
+            def f = new Match(
+                tournament: brazil2014,
+                stage: finals,
+                teamA: null,
+                teamB: null,
+                scoreA: null,
+                scoreB: null,
+                stadium: maracana,
+                referee1: ref,
+                referee2: ref,
+                referee3: ref,
+                referee4: ref,
+                date: new Date() + 7
+            ).save()
+            def third = new Match(
+                tournament: brazil2014,
+                stage: finals,
+                teamA: null,
+                teamB: null,
+                scoreA: null,
+                scoreB: null,
+                stadium: maracana,
+                referee1: ref,
+                referee2: ref,
+                referee3: ref,
+                referee4: ref,
+                date: new Date() + 7
+            ).save()         
+            
+            new MatchPreCondition(
+                match: sf1,
+                teamAFromStage: groupA,
+                teamAfromStagePosition: 1,
+                teamBFromStage: groupB,
+                teamBfromStagePosition: 2
+            ).save()
+            new MatchPreCondition(
+                match: sf2,
+                teamAFromStage: groupB,
+                teamAfromStagePosition: 1,
+                teamBFromStage: groupA,
+                teamBfromStagePosition: 2
             ).save()            
 
+            new MatchPreCondition(
+                match: f,
+                teamAFromMatch: sf1,
+                teamAFromMatchWinner: true,
+                teamBFromMatch: sf2,
+                teamBFromMatchWinner: true
+            ).save()
+            new MatchPreCondition(
+                match: third,
+                teamAFromMatch: sf1,
+                teamAFromMatchWinner: false,
+                teamBFromMatch: sf2,
+                teamBFromMatchWinner: false
+            ).save()            
+            
     	}
     }
 

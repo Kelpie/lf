@@ -9,6 +9,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<!-- Bootstrap -->
 		<asset:stylesheet src="layout/public.css"/>
+		<asset:javascript src="lib/bootstrap/bootstrap.min.js"/>
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 		<asset:javascript src="lib/bootstrap/respond.min.js"/>
@@ -52,6 +53,5 @@
 				<p class="text-muted credit"><center>&copy; Live Fans ${String.format('%tY', new Date())}</center></p>
 			</div>
 		</div>		
-		<asset:javascript src="lib/bootstrap/bootstrap.min.js"/>
 	</body>
 </html>

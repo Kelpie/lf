@@ -53,7 +53,9 @@
 					<div class="panel-body">
 						<div class="list-group">
 							<g:each var="match" in="${matches}">
-								<g:render template="/match/matchAsTable" model="['match': match]" />
+								<g:if test="${match.teamA && match.teamB}">
+									<g:render template="/match/matchAsTable" model="['match': match]" />
+								</g:if>
 							</g:each>
 						</div>
 					</div>

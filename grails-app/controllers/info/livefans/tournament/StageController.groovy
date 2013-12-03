@@ -17,11 +17,13 @@ class StageController {
 
     def show(Long id) {
 		TournamentStage stage = RequestUtils.secureDomainGet(TournamentStage, id)
-
+		println "show of stage ${stage.properties}"
 		def info = [:]
 
-		if(stage.type in TournamentStageType.knockoutStages())
+		if(stage.type in TournamentStageType.knockoutStages()){
 			info.brackets = knockoutService.calculateBrackets(stage)
+			println "brackets=${info.brackets}"
+		}
 		
 		if(stage.type == TournamentStageType.LEAGUE)
 			info.stats = leagueService.calculateStats(stage)
