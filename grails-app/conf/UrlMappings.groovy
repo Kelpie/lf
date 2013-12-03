@@ -23,8 +23,8 @@ class UrlMappings {
         "/admin/stadium/$action/$id?"(controller: "adminStadium")
         "/admin/referee/$action/$id?"(controller: "adminReferee")
         "/admin/match/$action/$id?"(controller: "adminMatch")
-        "/admin/tournament/$action/$id?"(controller: "adminTournament")
         "/admin/tournamentStage/$action/$id?"(controller: "adminTournamentStage")
+        "/admin/tournament/$action/$id?"(controller: "adminTournament")
         "/admin/$action"(controller: "admin")
         "/"(view:"/index")
         

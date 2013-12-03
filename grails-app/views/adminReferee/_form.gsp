@@ -13,7 +13,7 @@
 		<g:message code="referee.birthdate.label" default="Birthdate" />
 		<span class="required-indicator">*</span>
 	</label>
-	<input type="datetime-local" name="date" precision="day"  class="form-control" value="${refereeInstance?.birthdate}">
+	<input type="datetime-local" name="date" precision="day"  class="form-control" value="${refereeInstance?.birthdate.format("yyyy-MM-dd'T'HH:mm")}">
 </div>
 <br>
 <div class="form-grup fieldcontain ${hasErrors(bean: refereeInstance, field: 'birthplace', 'error')} ">

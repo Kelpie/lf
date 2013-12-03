@@ -5,15 +5,29 @@ package info.livefans.admin
 import grails.test.mixin.*
 import spock.lang.*
 import info.livefans.tournament.*
+import info.livefans.*
 
-@TestFor(TournamentStageController)
-@Mock(TournamentStage)
+@TestFor(AdminTournamentStageController)
+@Mock([Tournament,TournamentStage])
 class AdminTournamentStageControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        def brazil2014 = new Tournament( 
+            name:'tournament.fifa.world.cup.2014', 
+            logo:'tournament/WC2014.logo.png',
+            poster:'asd',
+            slogan:'tournament.fifa.world.cup.2014.slogan',
+            place: 'place.brazil'
+        ).save()
+
+    params.tournament = brazil2014
+    params.name = 'FINAL'
+    params.rank = '2'
+    params.dateFrom = new Date().parse("d/M/yyyy H:m:s", "02/11/2013 12:00:00")
+    params.dateTo = new Date().parse("d/M/yyyy H:m:s", "02/11/2013 14:00:00")
+    params.type = 'KNOCKOUT'
+    params.next = null
     }
 
     void "Test the index action returns the correct model"() {
@@ -53,7 +67,7 @@ class AdminTournamentStageControllerSpec extends Specification {
             controller.save(tournamentStage)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/tournamentStage/show/1'
+            response.redirectedUrl == '/admin/tournamentStage/show/1'
             controller.flash.message != null
             TournamentStage.count() == 1
     }
@@ -95,7 +109,7 @@ class AdminTournamentStageControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/tournamentStage/index'
+            response.redirectedUrl == '/admin/tournamentStage/index'
             flash.message != null
 
 
@@ -116,7 +130,7 @@ class AdminTournamentStageControllerSpec extends Specification {
             controller.update(tournamentStage)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/tournamentStage/show/$tournamentStage.id"
+            response.redirectedUrl == "/admin/tournamentStage/show/$tournamentStage.id"
             flash.message != null
     }
 
@@ -125,7 +139,7 @@ class AdminTournamentStageControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/tournamentStage/index'
+            response.redirectedUrl == '/admin/tournamentStage/index'
             flash.message != null
 
         when:"A domain instance is created"
@@ -141,7 +155,7 @@ class AdminTournamentStageControllerSpec extends Specification {
 
         then:"The instance is deleted"
             TournamentStage.count() == 0
-            response.redirectedUrl == '/tournamentStage/index'
+            response.redirectedUrl == '/admin/tournamentStage/index'
             flash.message != null
     }
 }

@@ -15,7 +15,7 @@
 		<g:message code="player.birthdate.label" default="Birthdate" />
 		<span class="required-indicator">*</span>
 	</label>
-	<input type="datetime-local" name="birthdate" precision="day"  class="form-control" value="${playerInstance?.birthdate}">
+	<input type="datetime-local" name="birthdate" precision="day"  class="form-control" value="${playerInstance?.birthdate.format("yyyy-MM-dd'T'HH:mm")}">
 </div>
 <br>
 <div class="form-grup fieldcontain ${hasErrors(bean: playerInstance, field: 'birthplace', 'error')} ">

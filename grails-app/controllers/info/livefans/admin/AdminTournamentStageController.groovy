@@ -4,7 +4,10 @@ package info.livefans.admin
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import info.livefans.*
+import info.livefans.admin.*
 import info.livefans.tournament.*
+
 
 @Transactional(readOnly = true)
 class AdminTournamentStageController {
@@ -30,7 +33,7 @@ class AdminTournamentStageController {
             notFound()
             return
         }
-
+        println params
         if (tournamentStageInstance.hasErrors()) {
             respond tournamentStageInstance.errors, view:'create'
             return
@@ -41,7 +44,7 @@ class AdminTournamentStageController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'tournamentStageInstance.label', default: 'TournamentStage'), tournamentStageInstance.id])
-                redirect tournamentStageInstance
+                redirect (uri:"/admin/tournamentStage/show/${tournamentStageInstance.id}")
             }
             '*' { respond tournamentStageInstance, [status: CREATED] }
         }
@@ -68,7 +71,7 @@ class AdminTournamentStageController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'TournamentStage.label', default: 'TournamentStage'), tournamentStageInstance.id])
-                redirect tournamentStageInstance
+                redirect (uri:"/admin/tournamentStage/show/${tournamentStageInstance.id}")
             }
             '*'{ respond tournamentStageInstance, [status: OK] }
         }
@@ -87,7 +90,7 @@ class AdminTournamentStageController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'TournamentStage.label', default: 'TournamentStage'), tournamentStageInstance.id])
-                redirect action:"index", method:"GET"
+                redirect (uri:"/admin/tournamentStage/index")
             }
             '*'{ render status: NO_CONTENT }
         }
@@ -97,7 +100,7 @@ class AdminTournamentStageController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'tournamentStageInstance.label', default: 'TournamentStage'), params.id])
-                redirect action: "index", method: "GET"
+                redirect (uri:"/admin/tournamentStage/index")
             }
             '*'{ render status: NOT_FOUND }
         }

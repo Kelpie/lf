@@ -23,7 +23,7 @@
 		<g:message code="tournamentStage.dateFrom.label" default="Date From" />
 		<span class="required-indicator">*</span>
 	</label>
-	<input type="datetime-local" name="dateFrom" precision="day" format="dd-MM-yyyy HH:mm" class="form-control" value="${tournamentStageInstance?.dateFrom}">
+	<input type="datetime-local" name="dateFrom" precision="day" format="dd-MM-yyyy HH:mm" class="form-control" value="${tournamentStageInstance?.dateFrom.format("yyyy-MM-dd'T'HH:mm")}" />
 </div>
 <br>
 <div class="form-grup fieldcontain ${hasErrors(bean: tournamentStageInstance, field: 'dateTo', 'error')} required">
@@ -31,7 +31,7 @@
 		<g:message code="tournamentStage.dateTo.label" default="Date To" />
 		<span class="required-indicator">*</span>
 	</label>
-		<input type="datetime-local" name="dateTo" precision="day"  class="form-control" value="${tournamentStageInstance?.dateTo}">
+		<input type="datetime-local" name="dateTo" precision="day"  class="form-control" value="${tournamentStageInstance?.dateTo.format("yyyy-MM-dd'T'HH:mm")}">
 </div>
 <br>
 <div class="form-grup fieldcontain ${hasErrors(bean: tournamentStageInstance, field: 'name', 'error')} ">
