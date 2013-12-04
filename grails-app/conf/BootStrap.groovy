@@ -11,12 +11,12 @@ class BootStrap {
     		
     		def superuser = new User(username: 'root', password: '12345').save()
     		def roles = [
-    						new Role(authority: 'ADMIN').save(),
-    						new Role(authority: 'MATCH_JOURNALIST').save(),
-    						new Role(authority: 'TOURNAMENT_MANAGER').save(),
-    						new Role(authority: 'TEAM_PLAYER_MANAGER').save(),
-    						new Role(authority: 'USER_ADMIN').save(),
-    						new Role(authority: 'USER').save()
+    						new Role(authority: 'ROLE_ADMIN').save(),
+    						new Role(authority: 'ROLE_MATCH_JOURNALIST').save(),
+    						new Role(authority: 'ROLE_TOURNAMENT_MANAGER').save(),
+    						new Role(authority: 'ROLE_TEAM_PLAYER_MANAGER').save(),
+    						new Role(authority: 'ROLE_USER_ADMIN').save(),
+    						new Role(authority: 'ROLE_USER').save()
     					]
     		roles.each{
     			if (superuser && it){
