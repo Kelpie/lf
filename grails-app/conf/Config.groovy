@@ -124,3 +124,7 @@ grails.plugin.springsecurity.authority.className = 'info.livefans.Role'
 grails.plugin.springsecurity.rejectIfNoRule = false
 grails.plugin.springsecurity.fii.rejectPublicInvocations = false
 grails.plugin.springsecurity.securityConfigType = "Annotation"
+
+grails.plugins.springsecurity.facebook.domain.classname='info.livefans.FacebookUser'
+grails.plugins.springsecurity.facebook.appId='1'
+grails.plugins.springsecurity.facebook.secret='2'
