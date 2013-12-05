@@ -36,6 +36,7 @@
 			</g:hasErrors>
 			<g:form url="[resource:matchInstance, action:'update']" method="PUT" >
 				<g:hiddenField name="version" value="${matchInstance?.version}" />
+				<g:hiddenField name="old.stadium.id" value="${matchInstance?.stadium.id}" />
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>

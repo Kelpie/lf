@@ -4,7 +4,9 @@ package info.livefans.admin
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import info.livefans.tournament.*
 import info.livefans.*
+
 
 @Transactional(readOnly = true)
 class AdminMatchController {
@@ -21,7 +23,6 @@ class AdminMatchController {
     }
 
     def create() {
-        println params
         respond new Match(params)
     }
 
@@ -31,7 +32,6 @@ class AdminMatchController {
             notFound()
             return
         }
-        println params
         if (matchInstance.hasErrors()) {
             respond matchInstance.errors, view:'create'
             return
@@ -39,6 +39,10 @@ class AdminMatchController {
 
         matchInstance.save flush:true
 
+        def tournamentStadiumInstance = TournamentStadium.findByTournamentAndStadium(matchInstance.tournament, matchInstance.stadium)
+        if (tournamentStadiumInstance == null) {
+            new TournamentStadium(tournament: matchInstance.tournament, stadium: matchInstance.stadium).save()    
+        }
         request.withFormat {
             form {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'matchInstance.label', default: 'Match'), matchInstance.id])
@@ -58,14 +62,26 @@ class AdminMatchController {
             notFound()
             return
         }
-
         if (matchInstance.hasErrors()) {
             respond matchInstance.errors, view:'edit'
             return
         }
-
         matchInstance.save flush:true
+        
+        def matchOldStadium = (params['old.stadium.id'])?Stadium.get(params.old.stadium.id):null
+        
+        if(matchOldStadium != null && matchInstance.stadium.id != matchOldStadium.id){
+            def tournamentStadiumInstance = TournamentStadium.findByTournamentAndStadium(matchInstance.tournament, matchInstance.stadium)
+            if (tournamentStadiumInstance == null) {
+                new TournamentStadium(tournament: matchInstance.tournament, stadium: matchInstance.stadium).save()
+            }
 
+            def mos = Match.findByTournamentAndStadium(matchInstance.tournament, matchOldStadium)
+            if (mos == null) {
+                TournamentStadium.findByTournamentAndStadium(matchInstance.tournament, matchOldStadium).delete()    
+            }      
+        }
+        
         request.withFormat {
             form {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Match.label', default: 'Match'), matchInstance.id])
@@ -82,9 +98,21 @@ class AdminMatchController {
             notFound()
             return
         }
-
+        println "Estadio del matchInstance ${matchInstance.stadium.name}"
         matchInstance.delete flush:true
-
+              
+        def tournamentStadiumInstance = TournamentStadium.findByTournamentAndStadium(matchInstance.tournament, matchInstance.stadium)
+        
+        if (tournamentStadiumInstance != null) {
+        println "Estadio recuperado: ${tournamentStadiumInstance.stadium.name}"
+        //    println "Borro estadio encontrado"
+        //    TournamentStadium.findByTournamentAndStadium(matchInstance.tournament, matchInstance.stadium).delete()
+         def existTheSameMatch = Match.findByTournamentAndStadium(tournamentStadiumInstance.tournament, tournamentStadiumInstance.stadium)
+         if (existTheSameMatch == null) {
+            tournamentStadiumInstance.delete()    
+         }
+        }
+         
         request.withFormat {
             form {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Match.label', default: 'Match'), matchInstance.id])
