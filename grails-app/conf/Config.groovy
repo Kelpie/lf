@@ -124,3 +124,10 @@ grails.plugin.springsecurity.authority.className = 'info.livefans.Role'
 grails.plugin.springsecurity.rejectIfNoRule = false
 grails.plugin.springsecurity.fii.rejectPublicInvocations = false
 grails.plugin.springsecurity.securityConfigType = "Annotation"
+
+grails.plugin.springsecurity.facebook.domain.classname='info.livefans.FacebookUser'
+grails.plugin.springsecurity.facebook.appId='1'
+grails.plugin.springsecurity.facebook.secret='2'
+grails.plugin.springsecurity.rememberMe.persistent = true
+grails.plugin.springsecurity.rememberMe.persistentToken.domainClassName = 'info.livefans.PersistentLogin'
+

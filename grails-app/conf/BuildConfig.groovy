@@ -55,6 +55,17 @@ grails.project.dependency.resolution = {
         build ":tomcat:7.0.42"
 
         compile ":spring-security-core:2.0-RC2"
+        compile ":spring-security-facebook:0.15.2-CORE2"
+        //compile ":spring-security-twitter:0.5.4" no es compatible con la version 2.0-RC2 de ssc
+
+        //dependencias de SSUI
+        compile ":mail:1.0.1"
+        compile ":jquery:1.10.2.2"
+        compile ":jquery-ui:1.10.3"
+        compile ":famfamfam:1.0.1"
+        //----
+        compile ":spring-security-ui:1.0-RC1"
+
         compile ":scaffolding:2.0.1"
         compile ':cache:1.1.1'
         compile ':hibernate:3.6.10.3'
