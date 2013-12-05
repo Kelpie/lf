@@ -98,19 +98,15 @@ class AdminMatchController {
             notFound()
             return
         }
-        println "Estadio del matchInstance ${matchInstance.stadium.name}"
         matchInstance.delete flush:true
               
         def tournamentStadiumInstance = TournamentStadium.findByTournamentAndStadium(matchInstance.tournament, matchInstance.stadium)
         
         if (tournamentStadiumInstance != null) {
-        println "Estadio recuperado: ${tournamentStadiumInstance.stadium.name}"
-        //    println "Borro estadio encontrado"
-        //    TournamentStadium.findByTournamentAndStadium(matchInstance.tournament, matchInstance.stadium).delete()
-         def existTheSameMatch = Match.findByTournamentAndStadium(tournamentStadiumInstance.tournament, tournamentStadiumInstance.stadium)
-         if (existTheSameMatch == null) {
-            tournamentStadiumInstance.delete()    
-         }
+            def existTheSameMatch = Match.findByTournamentAndStadium(tournamentStadiumInstance.tournament, tournamentStadiumInstance.stadium)
+            if (existTheSameMatch == null) {
+               tournamentStadiumInstance.delete()    
+            }
         }
          
         request.withFormat {
