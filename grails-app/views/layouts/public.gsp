@@ -27,7 +27,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/"><asset:image src="logolf1.fw.png"/>Live Fans</a>
+					<a class="navbar-brand" href="/"><asset:image src="logolf1.fw.png"/> Fanaticness</a>
 				</div>
 				<div class="navbar-collapse collapse">
 					<a href="#" class="btn btn-danger navbar-btn navbar-right"><g:message code="create.free.account"/></a>
