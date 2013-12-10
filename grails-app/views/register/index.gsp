@@ -1,153 +1,82 @@
 <html>
 	<head>
-		<title><g:message code='spring.security.ui.login.title'/></title>
+		<title><g:message code='spring.security.ui.register.title'/></title>
 		<meta name='layout' content='register'/>
 		<asset:stylesheet src="lib/jquery/jquery-ui-1.9.2.custom.css"/>
 		<asset:stylesheet src="lib/awesome/css/font-awesome.min.css"/>
+		<asset:stylesheet src="lib/metronic/style.css"/>
 		<asset:stylesheet src="page/register.css"/>
 	</head>
 	<body>
-		<div id="login-container">
-			<div id="login">
-				<h3><asset:image src="logolf2.fw.png"/> Fanaticness</h3>
-				<h5><g:message code='social.login'/></h5>
-				<br>
-				<div class="row">		
-					<div class="col-sm-6">
-						<a href="#" class="btn btn-twitter btn-block">
-							<i class="fa fa-twitter"></i>
-							&nbsp;&nbsp;<g:message code='login.with.twitter'/>
-						</a>
-					</div> <!-- /.col -->
-					<div class="col-sm-6">
-						<a href="/" class="btn btn-facebook btn-block">
-							<i class="fa fa-facebook"></i>
-							&nbsp;&nbsp;<g:message code='login.with.facebook'/>
-						</a>
-					</div> <!-- /.col -->
-				</div> <!-- /.row -->
-				<br>
-				<span class="text-muted"><g:message code='or.enter.your.information'/></span>
-
-				<form action='${postUrl}' method='POST' id="login-form" autocomplete='off' class="form">
-
-					<div class="form-group">
-						<label for="login-username"><g:message code='spring.security.ui.login.username'/></label>
-						<input type="text" class="${flash.message?'has-error ':''}form-control" id="login-username" name="j_username" placeholder="<g:message code='spring.security.ui.login.username'/>" size="20">
-					</div>
-
-					<div class="form-group">
-						<label for="login-password"><g:message code='spring.security.ui.login.password'/></label>
-						<input type="password" name="j_password" class="${flash.message?'has-error ':''}form-control" id="login-password" placeholder="<g:message code='spring.security.ui.login.password'/>" size="20">
-					</div>
-					<div class="form-group text-muted">
-						<input type="checkbox"  name="${rememberMeParameter}" id="remember_me" checked="checked" />
-						<g:message code='springSecurity.login.remember.me.label'/>
-												
-					</div>
-					<div class="form-group">
-						<button type="submit" id="login-btn" class="btn btn-primary btn-block"><g:message code='spring.security.ui.login.login'/> &nbsp; <i class="fa fa-play-circle"></i></button>
-					</div>
-					<g:if test="${flash.message}">
-						<div class="alert alert-danger">
-							${flash.message}
-						</div>	
-					</g:if>
-				</form>
-				<a href="/register/forgotPassword" class="btn btn-default">
-					<g:message code='spring.security.ui.login.forgotPassword'/>
-				</a>
-			</div>
-			<a href="/register" id="signup-btn" class="btn btn-lg btn-block">
-				<g:message code='spring.security.ui.login.register'/>
-			</a>
-		</div> <!-- /#login-container -->
-		
-		<asset:javascript src="lib/jquery/jquery-ui-1.9.2.custom.min.js"/>
-		<script type="text/javascript">
-			var Login = function () {
-				"use strict";
+	<div class="content">
+		<form class="register-form" action="/register/register" method="post" novalidate="novalidate" style="display: block;">
+			<g:if test='${emailSent}'>
+			<br/>
+				<g:message code='spring.security.ui.register.sent'/>
+			</g:if>
+			<g:else>
 				
-				return { init: init };
-
-				function init () {
-					$.support.placeholder = false;
-					var test = document.createElement('input');
-					if('placeholder' in test) $.support.placeholder = true;
-					
-					if (!$.support.placeholder) {
-						$('#login-form').find ('label').show ();			
-					}
-				}
-			} ();
-
-			$(function () {
-				Login.init ();
-			});
-		</script>	
-	
+				<br>
+				<h3><asset:image src="logolf2.fw.png"/> Fanaticness</h3>
+				<p><g:message code='spring.security.ui.register.description'/>Enter your personal details below:</p>
+				<div class="form-group">
+					<label class="control-label visible-ie8 visible-ie9"><g:message code='user.username.label'/></label>
+					<div class="<g:hasErrors bean="${command}" field="username">has-error </g:hasErrors>input-icon">
+						<i class="fa fa-user"></i>
+						<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="<g:message code='user.username.label'/>" name="username" value="${command.username}" />
+					</div>
+					<g:hasErrors bean="${command}" field="email">
+						<span for="username" class="help-block"><g:fieldError bean="${command}" field="username" /></span>
+					</g:hasErrors>		
+				</div>
+				<div class="form-group">
+					<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+					<label class="control-label visible-ie8 visible-ie9"><g:message code='user.email.label'/></label>
+					<div class="<g:hasErrors bean="${command}" field="email">has-error </g:hasErrors> input-icon">
+						<i class="fa fa-envelope"></i>
+						<input class="form-control placeholder-no-fix" type="text" placeholder="<g:message code='user.email.label'/>" name="email" value="${command.email}" />
+					</div>
+					<g:hasErrors bean="${command}" field="email">
+						<span for="email" class="help-block"><g:fieldError bean="${command}" field="email" /></span>
+					</g:hasErrors>					
+				</div>				
+				<div class="form-group">
+					<label class="control-label visible-ie8 visible-ie9"><g:message code='user.password.label'/></label>
+					<div class="<g:hasErrors bean="${command}" field="password">has-error </g:hasErrors>input-icon">
+						<i class="fa fa-lock"></i>
+						<input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="<g:message code='user.password.label'/>" name="password" value="${command.password}" />
+					</div>
+					<g:hasErrors bean="${command}" field="password">
+						<span for="password" class="help-block"><g:fieldError bean="${command}" field="password" /></span>
+					</g:hasErrors>					 
+				</div>
+				<div class="form-group">
+					<label class="control-label visible-ie8 visible-ie9"><g:message code='user.password2.label'/>Re-type Your Password</label>
+					<div class="controls">
+						<div class="<g:hasErrors bean="${command}" field="password2">has-error </g:hasErrors>input-icon">
+							<i class="fa fa-check"></i>
+							<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="<g:message code='user.password2.label'/>" name="password2" value="${command.password2}" />
+						</div>
+					</div>
+					<g:hasErrors bean="${command}" field="password2">
+						<span for="password2" class="help-block"><g:fieldError bean="${command}" field="password2" /></span>
+					</g:hasErrors>					
+				</div>
+				<div class="form-group">
+					<input type="checkbox" name="tnc">
+					<label>
+					 I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+					</label>  
+					<div id="register_tnc_error"></div>
+				</div>
+				<div class="form-actions">
+					<button type="submit" id="register-submit-btn" class="btn green">
+						<g:message code='spring.security.ui.register.submit'/>
+					</button>            
+				</div>
+			</g:else>
+		</form>
+		<!-- END REGISTRATION FORM -->
+	</div>
 	</body>
 </html>
-
-<!--
-
-<html>
-
-<head>
-	<meta name='layout' content='register'/>
-	<title><g:message code='spring.security.ui.register.title'/></title>
-</head>
-
-<body>
-
-<p/>
-
-<s2ui:form width='650' height='300' elementId='loginFormContainer'
-           titleCode='spring.security.ui.register.description' center='true'>
-
-<g:form action='register' name='registerForm'>
-
-	<g:if test='${emailSent}'>
-	<br/>
-	<g:message code='spring.security.ui.register.sent'/>
-	</g:if>
-	<g:else>
-
-	<br/>
-
-	<table>
-	<tbody>
-
-		<s2ui:textFieldRow name='username' labelCode='user.username.label' bean="${command}"
-                         size='40' labelCodeDefault='Username' value="${command.username}"/>
-
-		<s2ui:textFieldRow name='email' bean="${command}" value="${command.email}"
-		                   size='40' labelCode='user.email.label' labelCodeDefault='E-mail'/>
-
-		<s2ui:passwordFieldRow name='password' labelCode='user.password.label' bean="${command}"
-                             size='40' labelCodeDefault='Password' value="${command.password}"/>
-
-		<s2ui:passwordFieldRow name='password2' labelCode='user.password2.label' bean="${command}"
-                             size='40' labelCodeDefault='Password (again)' value="${command.password2}"/>
-
-	</tbody>
-	</table>
-
-	<s2ui:submitButton elementId='create' form='registerForm' messageCode='spring.security.ui.register.submit'/>
-
-	</g:else>
-
-</g:form>
-
-</s2ui:form>
-
-<script>
-$(document).ready(function() {
-	$('#username').focus();
-});
-</script>
-
-</body>
-</html>
-
--->

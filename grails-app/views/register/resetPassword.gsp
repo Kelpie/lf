@@ -8,7 +8,7 @@
 <body>
 
 <p/>
-
+asd
 <s2ui:form width='475' height='250' elementId='resetPasswordFormContainer'
            titleCode='spring.security.ui.resetPassword.header' center='true'>
 

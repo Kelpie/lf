@@ -10,12 +10,18 @@ class User {
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
+	String fullname
+	String email
+	String country
 
 	static transients = ['springSecurityService']
 
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
+		fullname nullable: true
+		email nullable: true
+		country nullable: true
 	}
 
 	static mapping = {
