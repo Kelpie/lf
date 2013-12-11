@@ -1,4 +1,5 @@
 /*
+ *= require lib/bootstrap/css/bootstrap.min.css
  *= require lib/metronic/select2_metro.css
  *= require lib/metronic/style-metronic.css
  *= require_self
