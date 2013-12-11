@@ -25,7 +25,7 @@
 			<thead>
 					<tr>
 					
-						<th><g:message code="tournamentStage.next.label" default="Next" /></th>
+						<g:sortableColumn property="name" title="${message(code: 'tournamentStage.name.label', default: 'Name')}" />
 					
 						<g:sortableColumn property="rank" title="${message(code: 'tournamentStage.rank.label', default: 'Rank')}" />
 					
@@ -33,8 +33,8 @@
 					
 						<g:sortableColumn property="dateTo" title="${message(code: 'tournamentStage.dateTo.label', default: 'Date To')}" />
 					
-						<g:sortableColumn property="name" title="${message(code: 'tournamentStage.name.label', default: 'Name')}" />
-					
+						<th><g:message code="tournamentStage.next.label" default="Next" /></th>
+
 						<th><g:message code="tournamentStage.tournament.label" default="Tournament" /></th>
 
 						<th><g:message code="tournamentStageInstance.id" default="View Details" /></th>
@@ -46,9 +46,7 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td>
-							<g:link action="show" id="${tournamentStageInstance.id}">
-								<g:message code="${tournamentStageInstance.next?.name}" />
-							</g:link>
+							<g:message code="${tournamentStageInstance.name}" />
 						</td>
 					
 						<td>
@@ -64,9 +62,11 @@
 						</td>
 					
 						<td>
-							<g:message code="${tournamentStageInstance.name}" />
+							<g:link action="show" id="${tournamentStageInstance.id}">
+								<g:message code="${tournamentStageInstance.next?.name}" />
+							</g:link>
 						</td>
-					
+
 						<td>
 							<g:message code="${tournamentStageInstance.tournament?.name}" />
 						</td>

@@ -101,12 +101,15 @@ class AdminMatchController {
         matchInstance.delete flush:true
               
         def tournamentStadiumInstance = TournamentStadium.findByTournamentAndStadium(matchInstance.tournament, matchInstance.stadium)
-        
+
         if (tournamentStadiumInstance != null) {
+
             def existTheSameMatch = Match.findByTournamentAndStadium(tournamentStadiumInstance.tournament, tournamentStadiumInstance.stadium)
+
             if (existTheSameMatch == null) {
                tournamentStadiumInstance.delete()    
             }
+
         }
          
         request.withFormat {
