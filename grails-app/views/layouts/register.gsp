@@ -16,7 +16,7 @@
 		<![endif]-->		
 		<g:layoutHead/>
 	</head>
-	<body>
+	<body class="login" style="">
 		<g:layoutBody/>	
 	</body>
 </html>

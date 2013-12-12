@@ -8,7 +8,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<!-- Bootstrap -->
+		<asset:stylesheet src="lib/metronic/style.css"/>
 		<asset:stylesheet src="layout/public.css"/>
+		<asset:stylesheet src="lib/awesome/css/font-awesome.min.css"/>
 		<asset:javascript src="lib/bootstrap/bootstrap.min.js"/>
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -30,16 +32,15 @@
 					<a class="navbar-brand" href="/"><asset:image src="logolf1.fw.png"/> Fanaticness</a>
 				</div>
 				<div class="navbar-collapse collapse">
-					<a href="#" class="btn btn-danger navbar-btn navbar-right"><g:message code="create.free.account"/></a>
-					<form class="navbar-form navbar-right">
-						<div class="form-group">
-							<input type="text" placeholder="<g:message code="email"/>" class="form-control">
-						</div>
-						<div class="form-group">
-							<input type="password" placeholder="<g:message code="password"/>" class="form-control">
-						</div>
-						<button type="submit" class="btn btn-success"><g:message code="sign.in"/></button>
-					</form>
+					<sec:ifLoggedIn>
+						<ul class="nav navbar-nav pull-right">
+							<g:render template="/user/notificationsmenu"/>
+							<g:render template="/user/usermenu"/>
+						</ul>
+					</sec:ifLoggedIn>
+					<sec:ifNotLoggedIn>
+						<g:render template="/user/loginmenu"/>
+					</sec:ifNotLoggedIn>					
 				</div>
 				<!--/.navbar-collapse -->
 			</div>

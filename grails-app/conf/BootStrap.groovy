@@ -9,7 +9,7 @@ class BootStrap {
 
     	if(Environment.PRODUCTION != Environment.current) {
     		
-    		def superuser = new User(username: 'root', password: '12345').save()
+    		def superuser = new User(username: 'capo@gmail.com', password: '12345').save()
     		def roles = [
     						new Role(authority: 'ROLE_ADMIN').save(),
     						new Role(authority: 'ROLE_MATCH_JOURNALIST').save(),

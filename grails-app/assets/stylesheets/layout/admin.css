@@ -17,6 +17,11 @@ body {
   margin-left: 10px;
 }
 
+.admin-sidebar {
+  display: block;
+  margin-top: 60px;
+}
+
 /* Wrapper for page content to push down footer */
 #wrap {
   min-height: 100%;
