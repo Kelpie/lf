@@ -9,10 +9,10 @@
 	</a>
 	<ul class="dropdown-menu">
 		<li>
-			<a href="extra_profile.html"><i class="fa fa-user"></i> My Profile</a>
+			<a href="/me"><i class="fa fa-user"></i> My Profile</a>
 		</li>
 		<li>
-			<a href="page_calendar.html"><i class="fa fa-calendar"></i> My Calendar</a>
+			<a href="/me/calendar"><i class="fa fa-calendar"></i> My Calendar</a>
 		</li>
 		<sec:access controller='admin' action='index'>
 			<li>
