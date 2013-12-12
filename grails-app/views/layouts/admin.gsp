@@ -57,354 +57,92 @@
 					<!-- BEGIN SIDEBAR MENU -->
 					<div class="slimScrollDiv">
 						<ul class="page-sidebar-menu">
-							<sec:access controller='adminTournament' action='index'>
-								<li class="${controllerName == 'adminTournament'?'active':''}">
-									<a href="javascript:;">
-										<i class="fa fa-bookmark-o"></i>
-										<span class="title">Tournament</span>
-										<g:if test="${controllerName == 'adminTournament'}">
-											<span class="selected"></span>
-										</g:if>
-										<span class="arrow ${controllerName == 'adminTournament'?'open':''}"></span>
-									</a>
-									<ul class="sub-menu">
-										<li class="${(controllerName == 'adminTournament' && actionName == 'index')?'active':''}">
-											<a href="/admin/tournament/index">
-												<i class="fa fa-list"></i>
-												List
-											</a>
-										</li>
-										<sec:access controller='adminTournament' action='create'>
-											<li class="${(controllerName == 'adminTournament' && actionName == 'create')?'active':''}">
-												<a href="/admin/tournament/create">
-													<i class="fa fa-plus"></i>
-													Create
-												</a>
-											</li>										
-										</sec:access>
-									</ul>
-								</li>								
-							</sec:access>							
-							<sec:access controller='adminTournamentStage' action='index'>
-								<li class="${controllerName == 'adminTournamentStage'?'active':''}">
-									<a href="javascript:;">
-										<i class="fa fa-sitemap"></i>
-										<span class="title">Stage</span>
-										<g:if test="${controllerName == 'adminTournamentStage'}">
-											<span class="selected"></span>
-										</g:if>
-										<span class="arrow ${controllerName == 'adminTournamentStage'?'open':''}"></span>
-									</a>
-									<ul class="sub-menu">
-										<li class="${(controllerName == 'adminTournamentStage' && actionName == 'index')?'active':''}">
-											<a href="/admin/tournament/stage/index">
-												<i class="fa fa-list"></i>
-												List
-											</a>
-										</li>
-										<sec:access controller='adminTournamentStage' action='create'>
-											<li class="${(controllerName == 'adminTournamentStage' && actionName == 'create')?'active':''}">
-												<a href="/admin/tournament/stage/create">
-													<i class="fa fa-plus"></i>
-													Create
-												</a>
-											</li>										
-										</sec:access>
-									</ul>
-								</li>								
-							</sec:access>
+							<g:render 	template="/includes/adminSideBarMenuItem" 
+										model="['controllerName': controllerName, 
+												'actionName': actionName,
+												'controllerMenu': 'adminTournament',
+												'menuLabelCode': 'tournament',
+												'menuLabelIcon': 'fa-trophy',
+												'controllerMenuActions': ['index','create'],
+												'controllerMenuActionsHrefs': ['/admin/tournament/index','/admin/tournament/create'],
+												'controllerMenuActionsIcons': ['fa-list','fa-plus'],
+												'controllerMenuActionsCodes': ['list','create']
+												]" 
+							/>
+							<g:render 	template="/includes/adminSideBarMenuItem" 
+										model="['controllerName': controllerName, 
+												'actionName': actionName,
+												'controllerMenu': 'adminTournamentStage',
+												'menuLabelCode': 'stage',
+												'menuLabelIcon': 'fa-sitemap',
+												'controllerMenuActions': ['index','create'],
+												'controllerMenuActionsHrefs': ['/admin/stage/index','/admin/stage/create'],
+												'controllerMenuActionsIcons': ['fa-list','fa-plus'],
+												'controllerMenuActionsCodes': ['list','create']
+												]" 
+							/>						
+							<g:render 	template="/includes/adminSideBarMenuItem" 
+										model="['controllerName': controllerName, 
+												'actionName': actionName,
+												'controllerMenu': 'adminMatch',
+												'menuLabelCode': 'match',
+												'menuLabelIcon': 'fa-play',
+												'controllerMenuActions': ['index','create'],
+												'controllerMenuActionsHrefs': ['/admin/match/index','/admin/match/create'],
+												'controllerMenuActionsIcons': ['fa-list','fa-plus'],
+												'controllerMenuActionsCodes': ['list','create']
+												]" 
+							/>
 
-							<li class="">
-								<a href="javascript:;">
-								<i class="fa fa-gift"></i>
-								<span class="title">
-								Extra
-								</span>
-								<span class="arrow ">
-								</span>
-								</a>
-								<ul class="sub-menu">
-									<li>
-										<a href="/extra_profile.html">
-										User Profile</a>
-									</li>
-									<li>
-										<a href="/extra_lock.html">
-										Lock Screen</a>
-									</li>
-									<li>
-										<a href="/extra_faq.html">
-										FAQ</a>
-									</li>
-									<li>
-										<a href="/inbox.html">
-										<span class="badge badge-important">
-										4
-										</span>
-										Inbox</a>
-									</li>
-									<li>
-										<a href="/extra_search.html">
-										Search Results</a>
-									</li>
-									<li>
-										<a href="/extra_invoice.html">
-										Invoice</a>
-									</li>
-									<li>
-										<a href="/extra_pricing_table.html">
-										Pricing Tables</a>
-									</li>
-									<li>
-										<a href="/extra_404_option1.html">
-										404 Page Option 1</a>
-									</li>
-									<li>
-										<a href="/extra_404_option2.html">
-										404 Page Option 2</a>
-									</li>
-									<li>
-										<a href="/extra_404_option3.html">
-										404 Page Option 3</a>
-									</li>
-									<li>
-										<a href="/extra_500_option1.html">
-										500 Page Option 1</a>
-									</li>
-									<li>
-										<a href="/extra_500_option2.html">
-										500 Page Option 2</a>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<a class="active" href="javascript:;">
-								<i class="fa fa-leaf"></i>
-								<span class="title">
-								3 Level Menu
-								</span>
-								<span class="arrow ">
-								</span>
-								</a>
-								<ul class="sub-menu">
-									<li>
-										<a href="javascript:;">
-										Item 1
-										<span class="arrow">
-										</span>
-										</a>
-										<ul class="sub-menu">
-											<li>
-												<a href="/layout_sidebar_fixed.html#">Sample Link 1</a>
-											</li>
-											<li>
-												<a href="/layout_sidebar_fixed.html#">Sample Link 2</a>
-											</li>
-											<li>
-												<a href="/layout_sidebar_fixed.html#">Sample Link 3</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="javascript:;">
-										Item 1
-										<span class="arrow">
-										</span>
-										</a>
-										<ul class="sub-menu">
-											<li>
-												<a href="/layout_sidebar_fixed.html#">Sample Link 1</a>
-											</li>
-											<li>
-												<a href="/layout_sidebar_fixed.html#">Sample Link 1</a>
-											</li>
-											<li>
-												<a href="/layout_sidebar_fixed.html#">Sample Link 1</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="/layout_sidebar_fixed.html#">
-										Item 3 </a>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<a href="javascript:;">
-								<i class="fa fa-folder-open"></i>
-								<span class="title">
-								4 Level Menu
-								</span>
-								<span class="arrow ">
-								</span>
-								</a>
-								<ul class="sub-menu">
-									<li>
-										<a href="javascript:;">
-										<i class="fa fa-cogs"></i> Item 1
-										<span class="arrow">
-										</span>
-										</a>
-										<ul class="sub-menu">
-											<li>
-												<a href="javascript:;">
-												<i class="fa fa-user"></i>
-												Sample Link 1
-												<span class="arrow">
-												</span>
-												</a>
-												<ul class="sub-menu">
-													<li>
-														<a href="/layout_sidebar_fixed.html#"><i class="fa fa-remove"></i> Sample Link 1</a>
-													</li>
-													<li>
-														<a href="/layout_sidebar_fixed.html#"><i class="fa fa-pencil"></i> Sample Link 1</a>
-													</li>
-													<li>
-														<a href="/layout_sidebar_fixed.html#"><i class="fa fa-edit"></i> Sample Link 1</a>
-													</li>
-												</ul>
-											</li>
-											<li>
-												<a href="/layout_sidebar_fixed.html#"><i class="fa fa-user"></i> Sample Link 1</a>
-											</li>
-											<li>
-												<a href="/layout_sidebar_fixed.html#"><i class="fa fa-external-link"></i> Sample Link 2</a>
-											</li>
-											<li>
-												<a href="/layout_sidebar_fixed.html#"><i class="fa fa-bell"></i> Sample Link 3</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="javascript:;">
-										<i class="fa fa-globe"></i> Item 2
-										<span class="arrow">
-										</span>
-										</a>
-										<ul class="sub-menu">
-											<li>
-												<a href="/layout_sidebar_fixed.html#"><i class="fa fa-user"></i> Sample Link 1</a>
-											</li>
-											<li>
-												<a href="/layout_sidebar_fixed.html#"><i class="fa fa-external-link"></i> Sample Link 1</a>
-											</li>
-											<li>
-												<a href="/layout_sidebar_fixed.html#"><i class="fa fa-bell"></i> Sample Link 1</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="/layout_sidebar_fixed.html#">
-										<i class="fa fa-folder-open"></i>
-										Item 3 </a>
-									</li>
-								</ul>
-							</li>
-							<li class="">
-								<a href="javascript:;">
-								<i class="fa fa-user"></i>
-								<span class="title">
-								Login Options
-								</span>
-								<span class="arrow ">
-								</span>
-								</a>
-								<ul class="sub-menu">
-									<li>
-										<a href="/login.html">
-										Login Form 1</a>
-									</li>
-									<li>
-										<a href="/login_soft.html">
-										Login Form 2</a>
-									</li>
-								</ul>
-							</li>
-							<li class="">
-								<a href="javascript:;">
-								<i class="fa fa-th"></i>
-								<span class="title">
-								Data Tables
-								</span>
-								<span class="arrow ">
-								</span>
-								</a>
-								<ul class="sub-menu">
-									<li>
-										<a href="/table_basic.html">
-										Basic Datatables</a>
-									</li>
-									<li>
-										<a href="/table_responsive.html">
-										Responsive Datatables</a>
-									</li>
-									<li>
-										<a href="/table_managed.html">
-										Managed Datatables</a>
-									</li>
-									<li>
-										<a href="/table_editable.html">
-										Editable Datatables</a>
-									</li>
-									<li>
-										<a href="/table_advanced.html">
-										Advanced Datatables</a>
-									</li>
-									<li>
-										<a href="/table_ajax.html">
-										Ajax Datatables</a>
-									</li>
-								</ul>
-							</li>
-							<li class="">
-								<a href="javascript:;">
-								<i class="fa fa-file-text"></i>
-								<span class="title">
-								Portlets
-								</span>
-								<span class="arrow ">
-								</span>
-								</a>
-								<ul class="sub-menu">
-									<li>
-										<a href="/portlet_general.html">
-										General Portlets</a>
-									</li>
-									<li>
-										<a href="/portlet_draggable.html">
-										Draggable Portlets</a>
-									</li>
-								</ul>
-							</li>
-							<li class="">
-								<a href="javascript:;">
-								<i class="fa fa-map-marker"></i>
-								<span class="title">
-								Maps
-								</span>
-								<span class="arrow ">
-								</span>
-								</a>
-								<ul class="sub-menu">
-									<li>
-										<a href="/maps_google.html">
-										Google Maps</a>
-									</li>
-									<li>
-										<a href="/maps_vector.html">
-										Vector Maps</a>
-									</li>
-								</ul>
-							</li>
-							<li class="last ">
-								<a href="/charts.html">
-								<i class="fa fa-bar-chart-o"></i>
-								<span class="title">
-								Visual Charts
-								</span>
-								</a>
-							</li>
+							<g:render 	template="/includes/adminSideBarMenuItem" 
+										model="['controllerName': controllerName, 
+												'actionName': actionName,
+												'controllerMenu': 'adminPlayer',
+												'menuLabelCode': 'player',
+												'menuLabelIcon': 'fa-user',
+												'controllerMenuActions': ['index','create'],
+												'controllerMenuActionsHrefs': ['/admin/player/index','/admin/player/create'],
+												'controllerMenuActionsIcons': ['fa-list','fa-plus'],
+												'controllerMenuActionsCodes': ['list','create']
+												]" 
+							/>
+
+							<g:render 	template="/includes/adminSideBarMenuItem" 
+										model="['controllerName': controllerName, 
+												'actionName': actionName,
+												'controllerMenu': 'adminTeam',
+												'menuLabelCode': 'team',
+												'menuLabelIcon': 'fa-users',
+												'controllerMenuActions': ['index','create'],
+												'controllerMenuActionsHrefs': ['/admin/team/index','/admin/team/create'],
+												'controllerMenuActionsIcons': ['fa-list','fa-plus'],
+												'controllerMenuActionsCodes': ['list','create']
+												]" 
+							/>
+							<g:render 	template="/includes/adminSideBarMenuItem" 
+										model="['controllerName': controllerName, 
+												'actionName': actionName,
+												'controllerMenu': 'adminReferee',
+												'menuLabelCode': 'referee',
+												'menuLabelIcon': 'fa-gavel',
+												'controllerMenuActions': ['index','create'],
+												'controllerMenuActionsHrefs': ['/admin/referee/index','/admin/referee/create'],
+												'controllerMenuActionsIcons': ['fa-list','fa-plus'],
+												'controllerMenuActionsCodes': ['list','create']
+												]" 
+							/>							
+							<g:render 	template="/includes/adminSideBarMenuItem" 
+										model="['controllerName': controllerName, 
+												'actionName': actionName,
+												'controllerMenu': 'adminStadium',
+												'menuLabelCode': 'stadium',
+												'menuLabelIcon': 'fa-home',
+												'controllerMenuActions': ['index','create'],
+												'controllerMenuActionsHrefs': ['/admin/stadium/index','/admin/stadium/create'],
+												'controllerMenuActionsIcons': ['fa-list','fa-plus'],
+												'controllerMenuActionsCodes': ['list','create']
+												]" 
+							/>			
 						</ul>
 					</div>
 					<!-- END SIDEBAR MENU -->
