@@ -9,7 +9,7 @@
 	<body>
 		<div id="login-container">
 			<div id="login">
-				<h3><asset:image src="logolf2.fw.png"/> Fanaticness</h3>
+				<h3><i class="fa fa-thumbs-o-up" style="color: red;font-size: 30px;"></i>&nbsp;Fanaticness</h3>
 				<h5><g:message code='social.login'/></h5>
 				<br>
 				<div class="row">		

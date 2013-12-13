@@ -85,8 +85,13 @@ From Medium Devices Up To Larger Devices
   	/***
   	Page content
   	***/
-  	.page-content { 
+  	.page-content.admin { 
   		margin-left: 225px; 
+	}
+  	/***
+  	Page content
+  	***/
+  	.page-content { 
 		margin-top: 0px;
 		min-height: 760px; 
 		padding: 25px 20px 20px 20px;

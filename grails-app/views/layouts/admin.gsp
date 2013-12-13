@@ -29,10 +29,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/">
-						<asset:image src="logolf1.fw.png"/>
-						Fanaticness
-					</a>
+					<a class="navbar-brand" href="/" style="color: white;"><i class="fa fa-thumbs-o-up" style="color: red;font-size: 30px;"></i>&nbsp;Fanaticness</a>
 				</div>
 				<div class="navbar-collapse collapse">
 					<sec:ifLoggedIn>
@@ -151,7 +148,7 @@
 			<!-- END SIDEBAR -->
 			<!-- BEGIN CONTENT -->
 			<div class="page-content-wrapper">
-				<div class="page-content" style="min-height:932px !important">
+				<div class="page-content admin" style="min-height:932px !important">
 					<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
 					<div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-dialog">

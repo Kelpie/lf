@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>
-			<g:layoutTitle default="Live Fans"/>
+			<g:layoutTitle default="Fanaticness"/>
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +29,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/"><asset:image src="logolf1.fw.png"/> Fanaticness</a>
+					<a class="navbar-brand" href="/" style="color: white;"><i class="fa fa-thumbs-o-up" style="color: red;font-size: 30px;"></i>&nbsp;Fanaticness</a>
 				</div>
 				<div class="navbar-collapse collapse">
 					<sec:ifLoggedIn>
@@ -51,7 +51,7 @@
 		<!-- /container -->
 		<div id="footer">
 			<div class="container">
-				<p class="text-muted credit"><center>&copy; Live Fans ${String.format('%tY', new Date())}</center></p>
+				<p class="text-muted credit"><center>&copy; Fanaticness ${String.format('%tY', new Date())}</center></p>
 			</div>
 		</div>		
 	</body>

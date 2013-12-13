@@ -17,7 +17,7 @@
 			<g:else>
 				
 				<br>
-				<h3><asset:image src="logolf2.fw.png"/> Fanaticness</h3>
+				<h3><i class="fa fa-thumbs-o-up" style="color: red;font-size: 30px;"></i>&nbsp;Fanaticness</h3>
 				<p><g:message code='spring.security.ui.register.description'/>Enter your personal details below:</p>
 				<div class="form-group">
 					<label class="control-label visible-ie8 visible-ie9"><g:message code='user.username.label'/></label>
